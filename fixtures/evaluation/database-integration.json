@@ -1,0 +1,110 @@
+{
+  "synthetic_only": true,
+  "fixture_images": {
+    "mysql": "mysql:8.4",
+    "mssql": "mcr.microsoft.com/mssql/server:2022-latest"
+  },
+  "checks": [
+    {
+      "kind": "mysql",
+      "check": "verified_tls_readonly_cancellation_and_recovery",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "write_capable_account_rejected",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "untrusted_certificate_rejected",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "sample_1000_rows_with_binary_and_view_gaps",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "approved_full_scan_2500_rows",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "midstream_cancel_reports_partial",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "lock_timeout_fails_without_full_claim",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "new_scan_recovers_after_lock_timeout",
+      "passed": true
+    },
+    {
+      "kind": "mysql",
+      "check": "presidio_one_row_actual_match_evidence",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "verified_tls_readonly_cancellation_and_recovery",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "certificate_ip_san_verified",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "trusted_certificate_wrong_hostname_rejected",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "write_capable_account_rejected",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "untrusted_certificate_rejected",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "sample_1000_rows_with_binary_and_view_gaps",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "approved_full_scan_2500_rows",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "midstream_cancel_reports_partial",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "lock_timeout_fails_without_full_claim",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "new_scan_recovers_after_lock_timeout",
+      "passed": true
+    },
+    {
+      "kind": "mssql",
+      "check": "presidio_one_row_actual_match_evidence",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

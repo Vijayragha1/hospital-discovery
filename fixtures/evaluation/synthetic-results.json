@@ -1,0 +1,204 @@
+{
+  "created_utc": "2026-09-21T18:39:52.348423+00:00",
+  "split": "evaluation",
+  "synthetic": true,
+  "hospital_validated": false,
+  "unit": "object-level classification/entity presence, not entity spans or individual patients",
+  "object_presence_diagnostic_only": true,
+  "instance_scoring": {
+    "enabled": false,
+    "unit": "object_value_occurrence",
+    "normalization": "exact_nfc_v1",
+    "observations_complete": false,
+    "incomplete_reasons": [],
+    "original_inputs_unchanged": true,
+    "results": []
+  },
+  "detector_version": "hospital-rules/1.0+sha256-a53393d7fcde2ea0d68a85bc9ac18d1090ab5052185ef16eea7dc84319cd6216/runtime-local-9d43e4c3d63a64d104b15c4411093d5bf913a0e4b9787848b6ca03644c3fa848",
+  "detector_mode": "rules",
+  "sample_count": 5,
+  "unexpected_objects": 0,
+  "duplicate_scanner_objects": 0,
+  "coverage_counts": {
+    "full": 3,
+    "unsupported": 1,
+    "excluded": 1
+  },
+  "coverage_expectations_met": true,
+  "results": [
+    {
+      "category": "digital",
+      "label": "clinical_content:HEALTH_INFORMATION",
+      "sample_count": 5,
+      "priority": false,
+      "positive_samples": 1,
+      "negative_samples": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": true,
+      "result": "unvalidated"
+    },
+    {
+      "category": "digital",
+      "label": "patient_linked_health:HEALTH_INFORMATION",
+      "sample_count": 5,
+      "priority": false,
+      "positive_samples": 1,
+      "negative_samples": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": true,
+      "result": "unvalidated"
+    },
+    {
+      "category": "digital",
+      "label": "personal_data:EMAIL_ADDRESS",
+      "sample_count": 5,
+      "priority": false,
+      "positive_samples": 1,
+      "negative_samples": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": true,
+      "result": "unvalidated"
+    },
+    {
+      "category": "digital",
+      "label": "personal_data:MRN",
+      "sample_count": 5,
+      "priority": false,
+      "positive_samples": 1,
+      "negative_samples": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": true,
+      "result": "unvalidated"
+    },
+    {
+      "category": "digital",
+      "label": "personal_data:UHID",
+      "sample_count": 5,
+      "priority": false,
+      "positive_samples": 1,
+      "negative_samples": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": true,
+      "result": "unvalidated"
+    }
+  ],
+  "samples": [
+    {
+      "id": "test-001",
+      "category": "digital",
+      "expected": [
+        "patient_linked_health:HEALTH_INFORMATION",
+        "personal_data:EMAIL_ADDRESS",
+        "personal_data:UHID"
+      ],
+      "actual": [
+        "patient_linked_health:HEALTH_INFORMATION",
+        "personal_data:EMAIL_ADDRESS",
+        "personal_data:UHID"
+      ],
+      "status": "full",
+      "reason": null,
+      "coverage_expectation_met": true
+    },
+    {
+      "id": "test-002",
+      "category": "digital",
+      "expected": [],
+      "actual": [],
+      "status": "full",
+      "reason": null,
+      "coverage_expectation_met": true
+    },
+    {
+      "id": "test-003",
+      "category": "digital",
+      "expected": [
+        "clinical_content:HEALTH_INFORMATION",
+        "personal_data:MRN"
+      ],
+      "actual": [
+        "clinical_content:HEALTH_INFORMATION",
+        "personal_data:MRN"
+      ],
+      "status": "full",
+      "reason": null,
+      "coverage_expectation_met": true
+    },
+    {
+      "id": "test-004",
+      "category": "digital",
+      "expected": [],
+      "actual": [],
+      "status": "unsupported",
+      "reason": "unsupported_file_format",
+      "coverage_expectation_met": true
+    },
+    {
+      "id": "test-005",
+      "category": "digital",
+      "expected": [],
+      "actual": [],
+      "status": "excluded",
+      "reason": "archive_scanning_disabled",
+      "coverage_expectation_met": true
+    }
+  ],
+  "priority_classes": {},
+  "acceptance_blockers": [
+    "synthetic_reference_set",
+    "production_detector_not_evaluated",
+    "priority_classes_not_declared:database",
+    "priority_classes_not_declared:digital",
+    "priority_classes_not_declared:ocr",
+    "instance_annotations_required"
+  ],
+  "acceptance_candidate": false,
+  "limitations": [
+    "Instance scoring matches class and exact NFC-normalized value one-to-one within each source object",
+    "No original span, page, record identity or patient-diagnosis linkage accuracy measurement",
+    "Clinical and schema-only classifications need a separate validated annotation unit",
+    "Repeated values count as occurrences, not unique entities or patients",
+    "Object-label metrics are diagnostic only and do not establish instance recall or OCR character accuracy",
+    "Hospital reviewer sign-off required"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "created_utc": "2026-09-22T02:33:41.193052+00:00",
+  "release_version": "20260922022904",
+  "runtime_identity": "3084baf555bd12ff337b59e8a42564abb3c826f664d5bbde6256a89058808986",
+  "platform": "linux/amd64",
+  "changes": [
+    "CSV/TSV nested JSON/XML cells have independent records without outer-row identifier inheritance.",
+    "Malformed structured CSV cells remain partial and cannot assert unverified patient linkage.",
+    "Explicit patient headers support colon, hash and equals across LF, CRLF and CR while preserving source offsets.",
+    "Raster OCR retains PII and clinical detection; unverified patient layout cannot establish a patient association.",
+    "Tika hOCR output preserves observed embedded image frame boundaries and word tokens; exact timeout parameter corrected."
+  ],
+  "portable_regression": {
+    "passed": 488,
+    "subtests_passed": 44,
+    "skipped": 0,
+    "errors": 0,
+    "failures": 0,
+    "dependency_deprecation_warnings": 2,
+    "scope": "Final frozen backend, extraction, detection, source/API, evaluator and packaging code after the line-ending correction. Platform-specific parser suites are historical below.",
+    "command": "PYTHONPATH=backend:scripts python -m pytest backend/tests scripts/test_evaluate.py scripts/test_instance_evaluation.py scripts/test_association_evaluation.py scripts/test_bundle.py -q"
+  },
+  "packaged_original_file_boundary_checks": 26,
+  "boundary_original_source_count": 7,
+  "boundary_coverage_counts": {
+    "full": 4,
+    "partial": 3
+  },
+  "packaged_pdf_reconciliation_checks": 17,
+  "packaged_https_checks": 32,
+  "packaged_comparison_checks": 10,
+  "packaged_ocr_instance_evaluation": {
+    "sample_count": 2,
+    "coverage_counts": {
+      "full": 2
+    },
+    "observations_complete": true,
+    "acceptance_candidate": false,
+    "report": "packaged-ocr-instance-evaluation.json",
+    "note": "Two synthetic original raster objects; correct MRN/UHID occurrences plus a retained non-priority PERSON false positive. Not hospital accuracy acceptance."
+  },
+  "packaged_original_record_evaluation": {
+    "sample_count": 1,
+    "coverage_counts": {
+      "full": 1
+    },
+    "mapping_complete": true,
+    "acceptance_candidate": false,
+    "measures": [
+      {
+        "category": "digital",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 1,
+        "positive_source_objects": 1,
+        "negative_source_objects": 0,
+        "positive_records": 3,
+        "negative_records": 2,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "digital",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 1,
+        "positive_source_objects": 1,
+        "negative_source_objects": 0,
+        "positive_records": 2,
+        "negative_records": 3,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      }
+    ],
+    "report": "packaged-association-evaluation.json",
+    "note": "Locked API image, network disabled, native JSON fixture with five records. Clinical presence and exact patient-reference association are distinct measures; no semantic diagnosis accuracy claim."
+  },
+  "default_egress_checks_passed": true,
+  "offline_image_load_verified": true,
+  "offline_model_load_verified": true,
+  "evaluation_packaging_script_hashes_match": true,
+  "script_module_count": 17,
+  "parser_source_image_hashes_match": true,
+  "parser_module_count": 6,
+  "parser_configuration_hash_matches": true,
+  "parser_file_count": 7,
+  "backend_source_image_hashes_match": true,
+  "backend_module_count": 21,
+  "api_worker_runtime_stamp_matches": true,
+  "image_ids_match_lock": true,
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260922022904",
+      "id": "sha256:dc73f5ca371f8d00d8ac650c75db7e8a9459824105ead7f74d9533533cc92d93"
+    },
+    "postgres": {
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260922022904",
+      "id": "sha256:b9d360f7acb48f38880046b2250e54259a3e7f75e696a2b8d676dba8b09d3647"
+    },
+    "web": {
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+    }
+  },
+  "historical_not_rerun": {
+    "linux_parser_gateway_tests": 42,
+    "pdf_feature_original_byte_cases": 65,
+    "isolated_ocr_worker_checks": 15,
+    "parser_note": "Parser Python/Java are unchanged; Tika XML changed. Fresh original DOCX and PDF checks exercise the current config. Counts here belong to reconciliation release 20260921193101.",
+    "frontend_helper_tests": 31,
+    "frontend_build_and_browser_inspection": "Unchanged web image from 20260921184022. Fresh HTTPS checks verify served assets/workflows, not a new browser visual inspection.",
+    "postgres_live_checks": 17,
+    "mysql_mssql_live_checks": 20,
+    "cloud_emulator_checks": 20
+  },
+  "outstanding_implementation": [
+    "Complete native PDF representation and Office embedded-content/frame inventories remain unverified; corresponding objects remain partial.",
+    "Arbitrary PDF/OCR/Office patient-record mapping and semantic diagnosis evaluation remain unsupported.",
+    "Backup/export retention and isolated restore tooling are operator procedures; host encryption and recovery acceptance remain hospital responsibilities."
+  ],
+  "hospital_inputs_pending": [
+    "Hosting placement and approved private source routes",
+    "Source engine/version, approved scope and read-only accounts",
+    "Hospital identifier formats and reviewed reference/held-out original sources",
+    "Workload limits, scan windows, retention, encryption, recovery and acceptance requirements"
+  ],
+  "notice": "Synthetic implementation verification only. No hospital system or patient data was accessed. Not hospital deployment, accuracy/workload acceptance, unique-patient counts, or proof of recognition accuracy."
+}

@@ -1,0 +1,241 @@
+{
+  "release": {
+    "change": "Exact spatial word correspondence across native/OCR line groups and ordered Tika fallback for native PDF columns",
+    "created_utc": "2026-09-22T03:53:04.430238+00:00",
+    "network_required_at_runtime": false,
+    "platform": "linux/amd64",
+    "purpose": "Hospital pilot; not hospital-validated accuracy",
+    "reproducibility": "Exact release replay via images.tar.gz; transitive dependency versions are recorded in inventory. Rebuilding from source can change OS/package resolutions.",
+    "runtime_identity": "1a40e108b8b4838727520acfe6fe00ee32ddc2eb3c4e9f2c79d11ed146900244",
+    "spacy_model": "en_core_web_lg-3.8.0",
+    "tika_version": "3.3.2",
+    "version": "20260922035303"
+  },
+  "images": {
+    "api": {
+      "architecture": "amd64",
+      "id": "sha256:50bd287783455ebfc4c243e8636d2b77f4fc3c8cba3081c8e24490f4d0ec9ea2",
+      "name": "hospital-discovery-api:pilot-20260922035303",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-api@sha256:a4bfd0d10eb60f336e207eb9770747002e8231ce1aeb3a54df828b816786416f"
+      ]
+    },
+    "postgres": {
+      "architecture": "amd64",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3",
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-postgres@sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+      ]
+    },
+    "tika": {
+      "architecture": "amd64",
+      "id": "sha256:101189814ec7972fd9ab5d5cbf59b4612da056e9412d4b21d1218e14d803a2e3",
+      "name": "hospital-discovery-tika:pilot-20260922034011",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-tika@sha256:160d7e9f362cb75f983a8cf58fd4f667fc2ca3e56e60e60ba54c6ecb894e411c"
+      ]
+    },
+    "web": {
+      "architecture": "amd64",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b",
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-web@sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+      ]
+    }
+  },
+  "synthetic": true,
+  "hospital_validated": false,
+  "acceptance_candidate": false,
+  "portable_regression": {
+    "passed": 743,
+    "subtests_passed": 44,
+    "warnings": 2,
+    "failures": 0,
+    "skips": 0
+  },
+  "packaged_association": {
+    "sample_count": 10,
+    "mode": "presidio",
+    "all_exact_fixture_checks_passed": true,
+    "previous_nine_gold_annotations_unchanged": true,
+    "native_repeated_identifier_original_added": true,
+    "coverage_counts": {
+      "full": 7,
+      "partial": 3
+    },
+    "mapping_complete": true,
+    "acceptance_blockers": [
+      "synthetic_reference_set",
+      "not_held_out_evaluation",
+      "priority_classes_not_declared:database",
+      "priority_instance_metrics_unvalidated_or_below_target",
+      "priority_record_association_metrics_unvalidated_or_below_target",
+      "original_document_coverage_incomplete"
+    ],
+    "clinical_association_results": [
+      {
+        "category": "digital",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 3,
+        "positive_source_objects": 3,
+        "negative_source_objects": 0,
+        "positive_records": 5,
+        "negative_records": 0,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": true,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "digital",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 3,
+        "positive_source_objects": 3,
+        "negative_source_objects": 0,
+        "positive_records": 5,
+        "negative_records": 0,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": true,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 7,
+        "positive_source_objects": 7,
+        "negative_source_objects": 0,
+        "positive_records": 12,
+        "negative_records": 1,
+        "annotated_records": 13,
+        "mapped_records": 13,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 7,
+        "positive_source_objects": 6,
+        "negative_source_objects": 1,
+        "positive_records": 11,
+        "negative_records": 2,
+        "annotated_records": 13,
+        "mapped_records": 13,
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      }
+    ]
+  },
+  "packaged_pdf_regression": {
+    "original_objects": 7,
+    "checks_passed": 17,
+    "checks": {
+      "native_repeat_occurrences_preserved": true,
+      "native_pdf_duplicate_channels_reconciled": true,
+      "native_pdf_still_partial": true,
+      "native_finding_count_not_doubled": true,
+      "tika_only_offpage_identifier_survives": true,
+      "offpage_disagreement_partial": true,
+      "invisible_native_identifier_survives": true,
+      "plain_image_only_pdf_has_complete_processing": true,
+      "image_only_pdf_identifier_reaches_detection": true,
+      "image_only_no_unknown_ancillary_claim": true,
+      "blank_pdf_processed_without_recognition_claim": true,
+      "mixed_original_pages_have_native_and_ocr": true,
+      "mixed_a4_geometry_verified": true,
+      "mixed_pdf_preserves_image_and_digital_values": true,
+      "mixed_pdf_metadata_remains_partial": true,
+      "embedded_jpeg_metadata_prevents_full": true,
+      "no_patient_values_or_word_boxes_in_metadata": true
+    },
+    "scope": "original_extraction_coverage_and_occurrence_safeguards"
+  },
+  "source_image_verification": {
+    "evaluation_packaging_script_hashes_match": true,
+    "script_module_count": 20,
+    "parser_source_image_hashes_match": true,
+    "parser_module_count": 6,
+    "parser_configuration_hash_matches": true,
+    "parser_file_count": 7,
+    "backend_source_image_hashes_match": true,
+    "backend_module_count": 25,
+    "image_ids_match_lock": true,
+    "runtime_identity": "1a40e108b8b4838727520acfe6fe00ee32ddc2eb3c4e9f2c79d11ed146900244"
+  },
+  "limitations": [
+    "Synthetic calibration examples do not establish hospital precision/recall.",
+    "Conflicting, incomplete or ambiguous word correspondences retain whole unresolved observations.",
+    "Native-bearing PDFs and Office documents retain documented partial coverage.",
+    "Hospital source settings, host selection, calibration and operational acceptance remain pending."
+  ],
+  "unchanged_components": [
+    "parser image",
+    "web image",
+    "PostgreSQL image"
+  ],
+  "historical_checks_not_rerun": [
+    "previous Linux parser tests",
+    "browser/HTTPS workflows",
+    "live connector/emulator drills",
+    "recovery drill"
+  ]
+}

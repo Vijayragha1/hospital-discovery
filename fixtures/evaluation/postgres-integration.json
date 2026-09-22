@@ -1,0 +1,28 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "checks": {
+    "nonroot_readonly_container_startup": true,
+    "catalog_lock_blocks_same_database_across_accounts": true,
+    "catalog_lock_allows_other_databases": true,
+    "catalog_lock_released_after_failure": true,
+    "verified_tls_readonly_cancellation_and_recovery": true,
+    "trusted_certificate_wrong_hostname_rejected": true,
+    "untrusted_certificate_rejected": true,
+    "write_denied_by_grants": true,
+    "transaction_read_only": true,
+    "source_session_uses_tls": true,
+    "server_statement_timeout_cancels_query": true,
+    "sampled_coverage_and_cap": true,
+    "email_detected": true,
+    "patient_linked_health_detected": true,
+    "gated_full_scan_reads_all_rows": true,
+    "cancelled_scan_is_partial": true,
+    "source_records_unchanged": true
+  },
+  "all_passed": true,
+  "elapsed_seconds": 2.38,
+  "sampled_object_count": 5,
+  "full_object_count": 5,
+  "note": "Fixture-only operational checks; no hospital accuracy or workload claim"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 3, "split": "evaluation", "synthetic": true,
+  "instance_scoring": {"unit": "object_value_occurrence", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "association_scoring": {"unit": "original_record_clinical_association_v1", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "priority_classes": {
+    "database": ["personal_data:MRN", "patient_linked_health:HEALTH_INFORMATION"],
+    "digital": ["personal_data:MRN", "patient_linked_health:HEALTH_INFORMATION"],
+    "ocr": ["personal_data:MRN", "patient_linked_health:HEALTH_INFORMATION"]
+  },
+  "sources": [{
+    "kind": "filesystem", "category": "digital", "config": {"root": "association-heldout"},
+    "samples": [{
+      "id": "synthetic-heldout-records", "location": "document.json", "expected_status": "full",
+      "expected": ["personal_data:MRN", "patient_linked_health:HEALTH_INFORMATION", "clinical_content:HEALTH_INFORMATION"],
+      "instances": [
+        {"entity_type": "MRN", "classification": "personal_data", "value": "SYN-A100"},
+        {"entity_type": "MRN", "classification": "personal_data", "value": "SYN-B200"},
+        {"entity_type": "MRN", "classification": "personal_data", "value": "SYN-A100"}
+      ],
+      "records": {"mapping": "json_pointer_v1", "items": [
+        {"locator": {"json_pointer": "/records/0"}, "clinical": true, "patient_reference": {"entity_type": "MRN", "value": "SYN-A100"}},
+        {"locator": {"json_pointer": "/records/1"}, "clinical": false, "patient_reference": null},
+        {"locator": {"json_pointer": "/records/2"}, "clinical": true, "patient_reference": null},
+        {"locator": {"json_pointer": "/records/3"}, "clinical": true, "patient_reference": {"entity_type": "MRN", "value": "SYN-A100"}},
+        {"locator": {"json_pointer": "/records/4"}, "clinical": false, "patient_reference": null}
+      ]}
+    }]
+  }]
+}

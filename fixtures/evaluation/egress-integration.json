@@ -1,0 +1,28 @@
+{
+  "outbound_blocked": {
+    "api": {
+      "public_https": true,
+      "public_dns_tcp": true,
+      "public_ipv6": true,
+      "external_dns_resolution": true
+    },
+    "worker": {
+      "public_https": true,
+      "public_dns_tcp": true,
+      "public_ipv6": true,
+      "external_dns_resolution": true
+    },
+    "parser_network_namespace": {
+      "public_https": true,
+      "public_dns_tcp": true,
+      "public_ipv6": true,
+      "external_dns_resolution": true
+    },
+    "ingress_guard": {
+      "public_http": true,
+      "external_dns_resolution": true
+    }
+  },
+  "all_passed": true,
+  "scope": "Default isolated mounted-file deployment; routed database/SMB/private cloud source firewall acceptance remains hospital-specific."
+}

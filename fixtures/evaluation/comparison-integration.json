@@ -1,0 +1,115 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "checks": {
+    "worker_records_packaged_processing_runtime": true,
+    "known_equal_runtime_is_comparable": true,
+    "complete_native_reads": true,
+    "removed_mrn_group_visible": true,
+    "new_uhid_group_visible": true,
+    "changed_email_count_visible": true,
+    "counts_not_patient_counts": true,
+    "no_match_values_or_excerpts_in_comparison": true,
+    "reduced_coverage_is_visible": true,
+    "reduced_coverage_has_no_false_finding_removal": true
+  },
+  "all_passed": true,
+  "runtime_identity": "3084baf555bd12ff337b59e8a42564abb3c826f664d5bbde6256a89058808986",
+  "comparable_source_change": {
+    "baseline": "ce6dcb7d-ee27-40a0-b863-b2b03537f712",
+    "current": "79177fe4-e7f2-4467-a96d-2fe7248221e1",
+    "detector_changed": false,
+    "detector_provenance_unknown": false,
+    "options_changed": false,
+    "summary": {
+      "changed": 1
+    },
+    "finding_summary": {
+      "changed": 1,
+      "no_longer_observed": 2,
+      "new": 2
+    },
+    "finding_summary_unit": "finding_groups",
+    "finding_count_unit": "recognizer_matches_not_unique_values_or_patients",
+    "changes": [
+      {
+        "location": "reference.txt",
+        "change": "changed",
+        "reason": "Content fingerprint or observed classifications changed.",
+        "finding_comparison": "comparable",
+        "finding_comparison_reason": "Complete reads with matching detector and policy; counts are recognizer observations, not unique values or patients.",
+        "finding_deltas": [
+          {
+            "entity_type": "EMAIL_ADDRESS",
+            "classification": "personal_data",
+            "reason": "email_format",
+            "segment": "segment:1/block:1/row:1",
+            "before_count": 1,
+            "after_count": 2,
+            "change": "changed"
+          },
+          {
+            "entity_type": "LOCATION",
+            "classification": "personal_data",
+            "reason": "local_presidio_recognizer",
+            "segment": "segment:1/block:1/row:1",
+            "before_count": 1,
+            "after_count": 0,
+            "change": "no_longer_observed"
+          },
+          {
+            "entity_type": "MRN",
+            "classification": "personal_data",
+            "reason": "hospital_identifier_label_and_format",
+            "segment": "segment:1/block:1/row:1",
+            "before_count": 1,
+            "after_count": 0,
+            "change": "no_longer_observed"
+          },
+          {
+            "entity_type": "PERSON",
+            "classification": "personal_data",
+            "reason": "local_presidio_recognizer",
+            "segment": "segment:1/block:1/row:1",
+            "before_count": 0,
+            "after_count": 1,
+            "change": "new"
+          },
+          {
+            "entity_type": "UHID",
+            "classification": "personal_data",
+            "reason": "hospital_identifier_label_and_format",
+            "segment": "segment:1/block:1/row:1",
+            "before_count": 0,
+            "after_count": 1,
+            "change": "new"
+          }
+        ]
+      }
+    ]
+  },
+  "reduced_coverage": {
+    "baseline": "79177fe4-e7f2-4467-a96d-2fe7248221e1",
+    "current": "82fb2032-8d39-4631-9a82-3f757038db89",
+    "detector_changed": false,
+    "detector_provenance_unknown": false,
+    "options_changed": true,
+    "summary": {
+      "coverage_lost": 1
+    },
+    "finding_summary": {},
+    "finding_summary_unit": "finding_groups",
+    "finding_count_unit": "recognizer_matches_not_unique_values_or_patients",
+    "changes": [
+      {
+        "location": "reference.txt",
+        "change": "coverage_lost",
+        "reason": "Current inspection is incomplete or has reduced coverage.",
+        "finding_comparison": "not_comparable",
+        "finding_comparison_reason": "Detector or scan policy differs; finding changes cannot be attributed to the source.",
+        "finding_deltas": []
+      }
+    ]
+  },
+  "notice": "Synthetic complete-path behavior, not hospital accuracy or workload acceptance."
+}

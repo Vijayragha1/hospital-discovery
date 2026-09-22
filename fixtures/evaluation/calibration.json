@@ -1,0 +1,8 @@
+{
+  "split": "calibration",
+  "synthetic": true,
+  "sources": [{
+    "id": "synthetic-calibration", "kind": "filesystem", "config": {"root": "calibration"}, "category": "digital",
+    "samples": [{"id": "cal-001", "location": "example.txt", "expected": ["personal_data:MRN", "personal_data:EMAIL_ADDRESS", "patient_linked_health:HEALTH_INFORMATION"], "expected_status": "full"}]
+  }]
+}

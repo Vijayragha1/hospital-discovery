@@ -1,0 +1,157 @@
+{
+  "release": {
+    "change": "Offline restored-catalog quarantine, identity verification and approved retention cleanup",
+    "created_utc": "2026-09-22T02:49:18.858709+00:00",
+    "network_required_at_runtime": false,
+    "platform": "linux/amd64",
+    "purpose": "Hospital pilot; not hospital-validated accuracy",
+    "reproducibility": "Exact release replay via images.tar.gz; transitive dependency versions are recorded in inventory. Rebuilding from source can change OS/package resolutions.",
+    "runtime_identity": "06ca249873ff658da7d7468ad29896567c531172765c9b7dc3a394a1f26e94ba",
+    "spacy_model": "en_core_web_lg-3.8.0",
+    "tika_version": "3.3.2",
+    "version": "20260922024917"
+  },
+  "images": {
+    "api": {
+      "architecture": "amd64",
+      "id": "sha256:8fd071cdd657a436e6f4f191dbff703aade1fe342adb0f9bdaff087a9a55a75c",
+      "name": "hospital-discovery-api:pilot-20260922024917",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-api@sha256:2642ecda8a000363b7a88dc908f849611e9622a972734db564340d74f8738817"
+      ]
+    },
+    "postgres": {
+      "architecture": "amd64",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3",
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-postgres@sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+      ]
+    },
+    "tika": {
+      "architecture": "amd64",
+      "id": "sha256:b9d360f7acb48f38880046b2250e54259a3e7f75e696a2b8d676dba8b09d3647",
+      "name": "hospital-discovery-tika:pilot-20260922022904",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-tika@sha256:b9d360f7acb48f38880046b2250e54259a3e7f75e696a2b8d676dba8b09d3647"
+      ]
+    },
+    "web": {
+      "architecture": "amd64",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b",
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-web@sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+      ]
+    }
+  },
+  "hospital_acceptance": false,
+  "synthetic_only": true,
+  "portable_regression": {
+    "passed": 508,
+    "subtests_passed": 44,
+    "skipped": 0,
+    "errors": 0,
+    "failures": 0,
+    "dependency_deprecation_warnings": 2,
+    "log_sha256": "bf90bb0b9a108c8ec501d9d690bc4a5c4048392c391287348132ebfe99b0ea56"
+  },
+  "recovery": {
+    "completed_utc": "2026-09-22T02:49:52.007339+00:00",
+    "release": "20260922024917",
+    "runtime_identity": "06ca249873ff658da7d7468ad29896567c531172765c9b7dc3a394a1f26e94ba",
+    "image_ids": {
+      "api": "sha256:8fd071cdd657a436e6f4f191dbff703aade1fe342adb0f9bdaff087a9a55a75c",
+      "postgres": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "synthetic_only": true,
+    "hospital_acceptance": false,
+    "status": "passed",
+    "check_count": 30,
+    "checks": [
+      "preloaded_image_ids_match_bundle",
+      "no_external_network_or_published_ports",
+      "custom_format_pg_dump_and_pg_restore",
+      "restored_ciphertexts_ids_reviews_comparison_equal",
+      "app_secret_key_mismatch_rejected_before_mutation",
+      "session_secret_mismatch_rejected_before_mutation",
+      "expired_scans_removed_across_batches",
+      "expired_objects_findings_evidence_cascaded",
+      "expired_audits_removed_across_batches",
+      "expired_heartbeat_marker_removed",
+      "sessions_revoked",
+      "restored_users_disabled",
+      "sources_disabled_and_revalidation_required",
+      "workload_approvals_revoked",
+      "source_credentials_preserved_encrypted",
+      "four_resumable_job_states_cancelled",
+      "all_heartbeats_cleared",
+      "explicit_current_retention_applied",
+      "evidence_decrypts",
+      "recovery_audited",
+      "surviving_ciphertexts_ids_reviews_comparison_preserved_after_preparation",
+      "actual_worker_once_does_not_resume_restored_jobs",
+      "old_cookie_rejected",
+      "old_password_account_rejected",
+      "fresh_cli_admin_login",
+      "restored_reviewed_findings_api",
+      "restored_evidence_api",
+      "restored_comparison_api",
+      "original_database_untouched",
+      "truncated_dump_restore_rejected"
+    ],
+    "retention_passes": 3,
+    "temporary_container_removed": true,
+    "limitations": [
+      "No hospital backup, keys or source used.",
+      "Does not attest host disk encryption, backup encryption, key escrow or site isolation.",
+      "Same-release schema only; no cross-version migration tested.",
+      "HTTP checks use in-process ASGI with an HTTPS base URL; no ingress/TLS stack is exercised."
+    ]
+  },
+  "packaged_identity": {
+    "evaluation_packaging_script_hashes_match": true,
+    "script_module_count": 18,
+    "parser_source_image_hashes_match": true,
+    "parser_module_count": 6,
+    "parser_configuration_hash_matches": true,
+    "parser_file_count": 7,
+    "backend_source_image_hashes_match": true,
+    "backend_module_count": 22,
+    "image_ids_match_lock": true,
+    "runtime_identity": "06ca249873ff658da7d7468ad29896567c531172765c9b7dc3a394a1f26e94ba"
+  },
+  "offline_archive_import_passed": true,
+  "offline_model_load_passed": true,
+  "changed_product_files": [
+    "backend/app/cli.py",
+    "backend/app/recovery.py"
+  ],
+  "new_validation_files": [
+    "backend/tests/test_recovery.py",
+    "scripts/validate_restore.py"
+  ],
+  "historical_not_rerun": {
+    "preceding_release": "20260922022904",
+    "evidence": "boundary-release-validation.json",
+    "boundary_original_file_checks": 26,
+    "pdf_checks": 17,
+    "https_checks": 32,
+    "comparison_checks": 10,
+    "parser_web_postgres_images_unchanged": true
+  },
+  "limitations": [
+    "No hospital installation, credentials, patient data or source access.",
+    "Hospital held-out precision/recall targets remain unvalidated.",
+    "Same-release synthetic restore only; host storage encryption, encrypted backup retention, key escrow and site recovery still require verification.",
+    "Unverified PDF/OCR/Office layouts cannot establish patient-linked clinical information; incomplete processing is reported as partial."
+  ]
+}

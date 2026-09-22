@@ -1,0 +1,4 @@
+SYNTHETIC CALIBRATION EXAMPLE — NOT A REAL PATIENT
+MRN: DEMO-2007
+Diagnosis: hypertension
+Email: calibration@example.invalid

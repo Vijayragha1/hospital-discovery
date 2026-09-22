@@ -1,0 +1,5 @@
+SYNTHETIC BOUNDARY TEST
+MRN: SYN-5501
+
+General clinical teaching material: diagnosis of diabetes and hypertension.
+This paragraph contains no patient identifier.

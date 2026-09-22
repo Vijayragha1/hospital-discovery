@@ -1,0 +1,41 @@
+# Relational database connectors
+
+PostgreSQL, MySQL and SQL Server require an exact approved host in `DATABASE_HOST_ALLOWLIST`, a private endpoint, a deployment-mounted trusted CA bundle configured by `SOURCE_DATABASE_CA_FILE`, verified TLS, a dedicated account passing the read-only permission checks, and a successful cancellation/recovery check. A browser cannot supply a different CA file or turn verification off.
+
+PostgreSQL uses SQLAlchemy/psycopg with `sslmode=verify-full`, `sslrootcert` set to the deployment's CA file, a TLS 1.2 minimum and GSS encryption disabled so it cannot replace the required TLS handshake. The configured hostname/IP must pass libpq's server-identity verification. Registration and worker preflight rebuild these settings from approved fields, rather than trusting a supplied or legacy DSN. Existing sources need the CA mounted before their next check/scan. Source grants and read-only transactions remain separate safeguards; a trusted server certificate is not a permissions check.
+
+For MySQL and SQL Server, certificate identity matching uses subject alternative names. SQL Server accepts DNS names or IPv4 addresses matching the certificate. The SQL Server compatibility patch below rejects common-name-only certificates.
+
+MySQL accepts versions 8 and 9 and scans InnoDB base tables. MariaDB, other storage engines, role-based grants and column-level grants are outside this initial implementation. The account must have direct grants limited to `USAGE`, `SELECT` and `SHOW VIEW`. Its session and scans also use read-only transactions. MySQL's schema is the configured database.
+
+SQL Server accepts version 2016 or later and SQL authentication, with `dbo` as the default schema. It checks effective server, database and selected-table permissions; write, control and execute privileges fail the check. Its read-only application intent is not a substitute for those permission checks. Server-directed redirects, including Always On read routing, are rejected before a second connection can be made. Configure an approved direct replica endpoint instead. Named instances, Windows integrated authentication and federated authentication are outside this connector's configuration.
+
+Samples examine at most 1,000 rows; batches contain at most 100 rows. MySQL/SQL Server additionally bound projected batch text to 8 MiB and projected rows to 1 MiB. Individual text values are bounded to 65,536 characters, with truncation reported as partial coverage. Full reads require workload approval and explicit table names. Primary keys provide stable ordering when present; otherwise metadata states the order is not guaranteed. Views and binary/spatial values are reported as coverage gaps rather than inspected. No source-table `COUNT(*)`, random sampling or automatic archive/blob extraction is performed.
+
+The starting limits are five seconds per statement and one second for a lock wait. MySQL/SQL Server enforce those ceilings; database execute/fetch time consumes their stream budget and local detection processing does not. MySQL enforces its server execution timeout; SQL Server uses the driver's TDS timeout/attention cancellation plus the database-call budget. PostgreSQL applies its configured server-side statement and lock limits. Cancelling or pausing reaches the next scanner checkpoint, closes the source connection and reports partial coverage. A restart begins inventory again; there is no durable row checkpoint.
+
+## Shared database-operation locks
+
+API connection checks/rechecks and worker scans acquire a nonblocking lock keyed by connector, lowercased configured host, port and database. Credentials, schema and selected tables are excluded, so separate registrations of the same configured database cannot run overlapping application checks/scans. PostgreSQL catalogs use session advisory locks; the development SQLite catalog uses process-safe file locks. A busy API request returns HTTP 409 without revoking a previously passed safety check. A worker leaves the run queued and retries on a later pass.
+
+Use one canonical host and database spelling per physical database. DNS/IP aliases, different catalogs and standalone connector scripts are not coordinated by this lock. The lock does not serialize hospital applications or replace workload monitoring. Retain one worker deployment for this pilot.
+
+Structured JSON/XML cell content is split into independent records before detection. Nested records do not inherit the containing row's identifier; only identity present in that record can support linkage. This can miss legitimate parent/child relationships and must be reviewed against hospital examples. Malformed, duplicate-key, unsafe XML or limited structured content is partial, rather than a complete flattened read.
+
+## Reviewed python-tds compatibility patch
+
+The pinned `python-tds==1.17.1` hostname verifier calls `X509.get_extension`, removed in `pyOpenSSL==26.2.0`. Downgrading the application's cryptography dependency would lose later fixes. Instead, `scripts/patch_python_tds.py` applies a deterministic install/build-time patch while retaining the pinned current `cryptography` and `pyOpenSSL` versions.
+
+The TLS module's `validate_host` function is replaced. The replacement reads DNS/IP subject alternative names with `cryptography.x509` and passes them to urllib3's maintained Python-derived hostname matcher with common-name fallback disabled. The existing OpenSSL certificate-chain verification and TLS handshake remain unchanged. Certificates that contain only a common name are rejected. Python 3.12 removed `ssl.match_hostname`, so that removed standard-library API is not used.
+
+The patch also replaces the driver's automatic route-following branch with connection closure and an error. Without this guard, an approved SQL Server could cause the driver to connect to a different hostname without passing the application's private-endpoint and allowlist checks. No redirect destination is opened or logged.
+
+The patch checks the installed distribution version, original module SHA-256 hashes, and deterministic patched SHA-256 hashes, and rejects unknown versions or files. Both files are validated before either is changed. Reapplying the same patch is safe. The SQL Server connector also checks both patched module hashes at connection time, so a fresh unpatched install fails closed. Installation must run the patch after dependency installation and before starting the API/worker. The Docker build includes this step. Upgrading python-tds, urllib3, pyOpenSSL or cryptography requires reviewing/removing the patch and rerunning certificate and live connector tests.
+
+Primary references: [python-tds TLS implementation](https://github.com/denisenkom/pytds/blob/master/src/pytds/tls.py), [pyOpenSSL changes](https://www.pyopenssl.org/en/stable/changelog.html), [urllib3 hostname matcher](https://github.com/urllib3/urllib3/blob/main/src/urllib3/util/ssl_match_hostname.py), [Python 3.12 SSL removals](https://docs.python.org/3.12/whatsnew/3.12.html#ssl).
+
+## Verification
+
+`backend/tests/test_database_connectors.py` covers allowlists, read-only grants, cancellation, safe errors, sample/full scope gates, wide-table bounds, identifier quoting, certificate DNS/IP/wildcard matching, wrong-name rejection, common-name precedence, patch integrity, redirect rejection and suppression of explicitly enabled driver debug loggers. `scripts/integration_databases.py` provisions only disposable loopback synthetic fixtures and checks verified TLS, writable-account rejection, untrusted-CA rejection, bounded sample/full reads, binary/view coverage, cancellation, lock timeout and recovery. SQL Server additionally checks trusted-certificate hostname mismatch and IP SAN validation. `--presidio` adds a one-row source-to-finding check with actual matched evidence using the installed production NLP model. These fixtures do not validate any hospital endpoint or account.
+
+The saved [sanitized integration report](../fixtures/evaluation/database-integration.json) records 20 passing checks against disposable `mysql:8.4` and `mcr.microsoft.com/mssql/server:2022-latest` fixtures, including actual Presidio match evidence. These are fixture image tags, not assertions about hospital software versions. The connector unit suite contains 22 passing tests.

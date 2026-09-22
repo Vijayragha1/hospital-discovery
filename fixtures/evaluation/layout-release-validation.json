@@ -1,0 +1,118 @@
+{
+  "release": {
+    "change": "Transient page/frame geometry, automatic labelled patient-record segmentation and original-rectangle association evaluation",
+    "created_utc": "2026-09-22T03:40:12.573881+00:00",
+    "network_required_at_runtime": false,
+    "platform": "linux/amd64",
+    "purpose": "Hospital pilot; not hospital-validated accuracy",
+    "reproducibility": "Exact release replay via images.tar.gz; transitive dependency versions are recorded in inventory. Rebuilding from source can change OS/package resolutions.",
+    "runtime_identity": "89a193d7d95e13ed5b6346294a47f05d5915524fc3881a3a8c6f155c6d28df0b",
+    "spacy_model": "en_core_web_lg-3.8.0",
+    "tika_version": "3.3.2",
+    "version": "20260922034011"
+  },
+  "images": {
+    "api": {
+      "architecture": "amd64",
+      "id": "sha256:692a5c3062779a38a1f3b44e8672681fe9cf2de37290e091cd009cb4f559813e",
+      "name": "hospital-discovery-api:pilot-20260922034011",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-api@sha256:b8f81a5f4171cc35a7b77cbec27b56fd69aae1f96a677f323aeb2e9be7e9bb2f"
+      ]
+    },
+    "postgres": {
+      "architecture": "amd64",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3",
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-postgres@sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+      ]
+    },
+    "tika": {
+      "architecture": "amd64",
+      "id": "sha256:101189814ec7972fd9ab5d5cbf59b4612da056e9412d4b21d1218e14d803a2e3",
+      "name": "hospital-discovery-tika:pilot-20260922034011",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-tika@sha256:160d7e9f362cb75f983a8cf58fd4f667fc2ca3e56e60e60ba54c6ecb894e411c"
+      ]
+    },
+    "web": {
+      "architecture": "amd64",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b",
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "os": "linux",
+      "platform": "linux/amd64",
+      "repo_digests": [
+        "hospital-discovery-web@sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+      ]
+    }
+  },
+  "synthetic": true,
+  "hospital_validated": false,
+  "acceptance_candidate": false,
+  "portable_regression": {
+    "passed": 705,
+    "subtests_passed": 44,
+    "warnings": 2,
+    "failures": 0,
+    "skips": 0
+  },
+  "linux_parser_gateway_regression": {
+    "passed": 55,
+    "source_overlay": true,
+    "external_network_disabled": true
+  },
+  "original_geometry_transport": {
+    "checks_passed": 80,
+    "source_hashes_unchanged": true,
+    "scope": "prerequisite_source_overlay"
+  },
+  "packaged_association": {
+    "sample_count": 9,
+    "mode": "presidio",
+    "bounded_route_and_safety_checks_passed": true,
+    "coverage_counts": {
+      "full": 7,
+      "partial": 2
+    },
+    "mapping_complete": false,
+    "acceptance_blockers": [
+      "synthetic_reference_set",
+      "not_held_out_evaluation",
+      "priority_classes_not_declared:database",
+      "priority_instance_metrics_unvalidated_or_below_target",
+      "original_record_association_mapping_incomplete",
+      "priority_record_association_metrics_unvalidated_or_below_target",
+      "original_document_coverage_incomplete"
+    ]
+  },
+  "source_image_verification": {
+    "evaluation_packaging_script_hashes_match": true,
+    "script_module_count": 20,
+    "parser_source_image_hashes_match": true,
+    "parser_module_count": 6,
+    "parser_configuration_hash_matches": true,
+    "parser_file_count": 7,
+    "backend_source_image_hashes_match": true,
+    "backend_module_count": 25,
+    "image_ids_match_lock": true,
+    "runtime_identity": "89a193d7d95e13ed5b6346294a47f05d5915524fc3881a3a8c6f155c6d28df0b"
+  },
+  "limitations": [
+    "Synthetic examples do not establish hospital precision/recall.",
+    "Native two-column PDF line reconciliation retains duplicate observations and cannot link its records; scoring errors remain visible.",
+    "Native-bearing PDFs and Office documents retain their documented partial coverage.",
+    "Hospital engine/share details, deployment host, calibration and operational acceptance remain pending."
+  ],
+  "historical_checks_not_rerun": [
+    "previous browser/HTTPS workflow",
+    "live connector and emulator drills",
+    "recovery drill"
+  ]
+}

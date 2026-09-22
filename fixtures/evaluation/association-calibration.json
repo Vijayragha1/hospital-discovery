@@ -1,0 +1,17 @@
+{
+  "schema_version": 3, "split": "calibration", "synthetic": true,
+  "instance_scoring": {"unit": "object_value_occurrence", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "association_scoring": {"unit": "original_record_clinical_association_v1", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "sources": [{
+    "kind": "filesystem", "category": "digital", "config": {"root": "association-calibration"},
+    "samples": [{
+      "id": "synthetic-calibration-records", "location": "document.json", "expected_status": "full",
+      "expected": ["personal_data:MRN", "patient_linked_health:HEALTH_INFORMATION"],
+      "instances": [{"entity_type": "MRN", "classification": "personal_data", "value": "CAL-X900"}],
+      "records": {"mapping": "json_pointer_v1", "items": [
+        {"locator": {"json_pointer": "/records/0"}, "clinical": true, "patient_reference": {"entity_type": "MRN", "value": "CAL-X900"}},
+        {"locator": {"json_pointer": "/records/1"}, "clinical": false, "patient_reference": null}
+      ]}
+    }]
+  }]
+}

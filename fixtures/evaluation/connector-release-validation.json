@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "backend_tests": 163,
+  "frontend_helper_tests": 12,
+  "database_live_checks": 20,
+  "cloud_emulator_checks": 20,
+  "packaged_https_checks": 26,
+  "backend_source_image_hashes_match": true,
+  "offline_image_load_verified": true,
+  "notice": "Historical connector-release checks from before the self-hosting hardening update; see selfhost-release-validation.json for current verification.",
+  "historical": true
+}

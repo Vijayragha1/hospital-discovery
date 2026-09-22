@@ -1,0 +1,53 @@
+{
+  "completed_utc": "2026-09-22T02:49:52.007339+00:00",
+  "release": "20260922024917",
+  "runtime_identity": "06ca249873ff658da7d7468ad29896567c531172765c9b7dc3a394a1f26e94ba",
+  "image_ids": {
+    "api": "sha256:8fd071cdd657a436e6f4f191dbff703aade1fe342adb0f9bdaff087a9a55a75c",
+    "postgres": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+  },
+  "synthetic_only": true,
+  "hospital_acceptance": false,
+  "status": "passed",
+  "check_count": 30,
+  "checks": [
+    "preloaded_image_ids_match_bundle",
+    "no_external_network_or_published_ports",
+    "custom_format_pg_dump_and_pg_restore",
+    "restored_ciphertexts_ids_reviews_comparison_equal",
+    "app_secret_key_mismatch_rejected_before_mutation",
+    "session_secret_mismatch_rejected_before_mutation",
+    "expired_scans_removed_across_batches",
+    "expired_objects_findings_evidence_cascaded",
+    "expired_audits_removed_across_batches",
+    "expired_heartbeat_marker_removed",
+    "sessions_revoked",
+    "restored_users_disabled",
+    "sources_disabled_and_revalidation_required",
+    "workload_approvals_revoked",
+    "source_credentials_preserved_encrypted",
+    "four_resumable_job_states_cancelled",
+    "all_heartbeats_cleared",
+    "explicit_current_retention_applied",
+    "evidence_decrypts",
+    "recovery_audited",
+    "surviving_ciphertexts_ids_reviews_comparison_preserved_after_preparation",
+    "actual_worker_once_does_not_resume_restored_jobs",
+    "old_cookie_rejected",
+    "old_password_account_rejected",
+    "fresh_cli_admin_login",
+    "restored_reviewed_findings_api",
+    "restored_evidence_api",
+    "restored_comparison_api",
+    "original_database_untouched",
+    "truncated_dump_restore_rejected"
+  ],
+  "retention_passes": 3,
+  "temporary_container_removed": true,
+  "limitations": [
+    "No hospital backup, keys or source used.",
+    "Does not attest host disk encryption, backup encryption, key escrow or site isolation.",
+    "Same-release schema only; no cross-version migration tested.",
+    "HTTP checks use in-process ASGI with an HTTPS base URL; no ingress/TLS stack is exercised."
+  ]
+}

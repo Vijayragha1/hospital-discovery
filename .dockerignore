@@ -1,0 +1,14 @@
+.git
+**/.env
+**/.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+frontend/dist
+deploy/certs
+work
+bundle
+**/*.tar
+**/*.tar.gz
+**/*.key
+**/*.sqlite*

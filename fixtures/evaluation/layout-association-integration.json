@@ -1,0 +1,677 @@
+{
+  "created_utc": "2026-09-22T03:41:07.690662+00:00",
+  "synthetic": true,
+  "hospital_validated": false,
+  "scope": "packaged_release",
+  "detector_mode": "presidio",
+  "detector_version": "hospital-rules/1.0+sha256-e2951cf2fb32aec24e45ab8f929d9606a9c089e676ce106a5f63db5f9526015f/presidio-2.2.364/spacy-3.8.16/model-en_core_web_lg-3.8.0/runtime-bundle-89a193d7d95e13ed5b6346294a47f05d5915524fc3881a3a8c6f155c6d28df0b",
+  "reference_sha256": "e2195580e63aa360e6121dd483047ee82fd05269413ed5c8b0595b6ac1428626",
+  "reference_unchanged": true,
+  "sample_count": 9,
+  "coverage_counts": {
+    "full": 7,
+    "partial": 2
+  },
+  "positive_route_checks_passed": true,
+  "known_layout_safety_checks_passed": true,
+  "bounded_route_and_safety_checks_passed": true,
+  "all_exact_accuracy_checks_passed": false,
+  "acceptance_candidate": false,
+  "acceptance_blockers": [
+    "synthetic_reference_set",
+    "not_held_out_evaluation",
+    "priority_classes_not_declared:database",
+    "priority_instance_metrics_unvalidated_or_below_target",
+    "original_record_association_mapping_incomplete",
+    "priority_record_association_metrics_unvalidated_or_below_target",
+    "original_document_coverage_incomplete"
+  ],
+  "association_scoring": {
+    "mapping_complete": false,
+    "incomplete_reasons": [
+      "clinical_finding_record_unmapped",
+      "document_layout_observations_incomplete",
+      "document_segment_crosses_or_misses_gold_records"
+    ],
+    "results": [
+      {
+        "category": "digital",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 2,
+        "positive_source_objects": 2,
+        "negative_source_objects": 0,
+        "positive_records": 3,
+        "negative_records": 0,
+        "annotated_records": 3,
+        "mapped_records": 3,
+        "tp": 3,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": true,
+        "mapping_incomplete": true,
+        "result": "unvalidated"
+      },
+      {
+        "category": "digital",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 2,
+        "positive_source_objects": 2,
+        "negative_source_objects": 0,
+        "positive_records": 3,
+        "negative_records": 0,
+        "annotated_records": 3,
+        "mapped_records": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": true,
+        "mapping_incomplete": true,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 7,
+        "positive_source_objects": 7,
+        "negative_source_objects": 0,
+        "positive_records": 12,
+        "negative_records": 1,
+        "annotated_records": 13,
+        "mapped_records": 13,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": true,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 7,
+        "positive_source_objects": 6,
+        "negative_source_objects": 1,
+        "positive_records": 11,
+        "negative_records": 2,
+        "annotated_records": 13,
+        "mapped_records": 13,
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": true,
+        "result": "unvalidated"
+      }
+    ]
+  },
+  "instance_scoring": {
+    "observations_complete": true,
+    "incomplete_reasons": [],
+    "results": [
+      {
+        "category": "digital",
+        "label": "personal_data:UHID",
+        "priority": true,
+        "unit": "object_value_occurrence",
+        "normalization": "exact_nfc_v1",
+        "sample_count": 2,
+        "positive_samples": 2,
+        "negative_samples": 0,
+        "negative_samples_with_false_positives": 0,
+        "expected_occurrences": 3,
+        "observed_occurrences": 7,
+        "tp": 3,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.42857142857142855,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_samples": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": true,
+        "observations_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "personal_data:UHID",
+        "priority": true,
+        "unit": "object_value_occurrence",
+        "normalization": "exact_nfc_v1",
+        "sample_count": 7,
+        "positive_samples": 7,
+        "negative_samples": 0,
+        "negative_samples_with_false_positives": 0,
+        "expected_occurrences": 12,
+        "observed_occurrences": 12,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_samples": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "observations_incomplete": false,
+        "result": "unvalidated"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "sample": "sample-001",
+      "case_kind": "positive_route",
+      "format": ".png",
+      "category": "ocr",
+      "original_units": 1,
+      "annotated_records": 1,
+      "mapped_records": 1,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-002",
+      "case_kind": "positive_route",
+      "format": ".png",
+      "category": "ocr",
+      "original_units": 1,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-003",
+      "case_kind": "positive_route",
+      "format": ".png",
+      "category": "ocr",
+      "original_units": 1,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-004",
+      "case_kind": "positive_route",
+      "format": ".png",
+      "category": "ocr",
+      "original_units": 1,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-005",
+      "case_kind": "positive_route",
+      "format": ".tif",
+      "category": "ocr",
+      "original_units": 2,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-006",
+      "case_kind": "known_unresolved_layout_safety_probe",
+      "format": ".pdf",
+      "category": "digital",
+      "original_units": 1,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "partial",
+      "reason": "pdf_native_ocr_and_nonpage_coverage_unverified",
+      "expected_status": "partial",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 3,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 4,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [
+        "clinical_finding_record_unmapped",
+        "document_layout_observations_incomplete",
+        "document_segment_crosses_or_misses_gold_records"
+      ],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": false,
+        "exact_clinical_records": false,
+        "exact_patient_reference_associations": false,
+        "exact_uhid_occurrences": false,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {
+        "original_bytes_unchanged": true,
+        "coverage_remains_partial": true,
+        "no_unverified_patient_linked_findings": true,
+        "mapping_gaps_visible": true,
+        "duplicate_identifier_observations_visible": true,
+        "unmapped_clinical_observations_visible": true,
+        "missed_associations_visible": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      }
+    },
+    {
+      "sample": "sample-007",
+      "case_kind": "positive_route",
+      "format": ".pdf",
+      "category": "ocr",
+      "original_units": 1,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-008",
+      "case_kind": "positive_route",
+      "format": ".pdf",
+      "category": "ocr",
+      "original_units": 2,
+      "annotated_records": 2,
+      "mapped_records": 2,
+      "status": "full",
+      "reason": null,
+      "expected_status": "full",
+      "clinical_records": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    },
+    {
+      "sample": "sample-009",
+      "case_kind": "positive_route",
+      "format": ".pdf",
+      "category": "digital",
+      "original_units": 1,
+      "annotated_records": 1,
+      "mapped_records": 1,
+      "status": "partial",
+      "reason": "pdf_native_representation_and_nonpage_coverage_unverified",
+      "expected_status": "partial",
+      "clinical_records": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "patient_reference_associations": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "uhid_occurrences": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "additional_observed_pii_occurrences": {},
+      "mapping_reasons": [],
+      "checks": {
+        "original_bytes_unchanged": true,
+        "coverage_expectation_met": true,
+        "all_original_records_mapped": true,
+        "original_mapping_complete": true,
+        "exact_clinical_records": true,
+        "exact_patient_reference_associations": true,
+        "exact_uhid_occurrences": true,
+        "complete_occurrence_observations": true,
+        "no_values_or_evidence_retained": true,
+        "no_word_geometry_retained": true
+      },
+      "safety_checks": {}
+    }
+  ],
+  "limitations": [
+    "Synthetic calibration fixtures are not held-out hospital accuracy evidence",
+    "Clinical presence and exact patient-reference association do not measure semantic diagnosis extraction",
+    "The minimum 30 positive and 30 negative original objects per required class/category is not met",
+    "Native PDF partial coverage remains partial even when visible records are mapped correctly",
+    "The unresolved two-column native safety probe still contributes all duplicate PII and clinical FP/FN to accuracy results",
+    "PII occurrences are recognizer matches, not unique entities or patients",
+    "Additional NLP PII predictions remain visible in occurrence metrics and may be false positives",
+    "This bounded file-object runner does not validate source inventory, access controls, or deployment readiness"
+  ],
+  "release_version": "20260922034011",
+  "runtime_identity": "89a193d7d95e13ed5b6346294a47f05d5915524fc3881a3a8c6f155c6d28df0b",
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260922034011",
+      "id": "sha256:692a5c3062779a38a1f3b44e8672681fe9cf2de37290e091cd009cb4f559813e"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260922034011",
+      "id": "sha256:101189814ec7972fd9ab5d5cbf59b4612da056e9412d4b21d1218e14d803a2e3"
+    }
+  },
+  "source_hashes": {
+    "backend/app/worker.py": "3e899675c1253363fd1c95f4aeaddc44fc71a37154b178c6f4280bb46ad68010",
+    "backend/app/db.py": "0d2ce8553d7607952d2a61529ebb4ecb83638d4f6fd05ae99ea7306ae792da2b",
+    "backend/app/detection.py": "690f858b208cd070a3aa95cd854934eca7ceb356a2130bf358c157daaad14f5a",
+    "backend/app/connectors.py": "05d767a8aeb1176c190a4dbdf4df2cc33494de9c0d76a7c458c0dd86fc05a3ab",
+    "backend/app/config.py": "91db07dc9e42b4779cb9c28fe889c7d7bd57d07e24dba58e650c24a6e084587b",
+    "backend/app/recovery.py": "0994e9d33cee6f9819d1408b59aab9d4c316b79a3aea4aa72d86ed2f0b88e850",
+    "backend/app/models.py": "2d10ba8a0897daccd1f771909faee55094e048ab40d4514aea16c73532792af0",
+    "backend/app/document_analysis.py": "69eb6c8b41f554f3ed315ca34ea3e4b06e0223d910e4187b89277dc9ff81d8e7",
+    "backend/app/document_layout.py": "ad08faa6652b2f68d841b695410f875ccd17fa45b015accff0a64fdb3f2ea57f",
+    "backend/app/security.py": "dcb22e476f41b6c88b8cdb2f19bbebea3ea7499c902a8c3f08316a9e89b63bf6",
+    "backend/app/__init__.py": "0ea69ee4aa62037d0d37df46ec1cdac67570f8b02ab451f78afc5dfd095b0230",
+    "backend/app/pdf_reconciliation.py": "c5ee4eb7113954e02dc15b31eff534e06044a055787cfab1546f28c17ea90d79",
+    "backend/app/database_connectors.py": "f470cb914cdf258e90678e963c832699304c81c29ade78eb589d2d307a3a2b01",
+    "backend/app/ocr_accounting.py": "d11c893afa8804bdb05483fbc5bf186d3dea591604f0616da0a3ee0ea92358cd",
+    "backend/app/comparison.py": "b01942dbcb8440b5486bc76b6298dbfbef569e086ebf201153f42b031672980a",
+    "backend/app/sources.py": "3ae0c8d067b84cc3956a174d1d83169335e7bdbb89e70839707a6e0bc860a36c",
+    "backend/app/cloud_connectors.py": "2a2ca9685d9619fdc87db0b2c05c998ff9581979733c6210170aab3849b584ec",
+    "backend/app/schemas.py": "c5d15e83f8522d10be5d2293af4908e15b192c31cbf6dbf5ae369f912aef0200",
+    "backend/app/cli.py": "c7e2dc3deac356e95eb6128e0b304795b200885a65b7bf7a8709416d6a957aa8",
+    "backend/app/extraction.py": "64a968610998e7d035c812fb0684f3f684da03e98dec33967b653d7746190db5",
+    "backend/app/scanning.py": "1f91fbbbd4b2b29c0782c64e25fdc6451dc3f545697285ed534b99778af3eeda",
+    "backend/app/source_locks.py": "f44b96611fdc23cf887ece635b8e2fb7e7f1c9f9c9eb04df442e457580f1efd5",
+    "backend/app/provenance.py": "f1556c192e1c18e503e0986298bd54e805ae501b8cbb824a83c30b48c8b899fb",
+    "backend/app/main.py": "b8854cefbd2dadb58259790991a7e1e50d4a356a23a5528f4b07922250805471",
+    "backend/app/document_channels.py": "ce20a718297300ef88fc198627c39a66d7da366a56f225a84330c3aa43b34d39",
+    "deploy/parser/sandbox_exec.py": "e74e0dbbfb75070ff624609ec69a4f1e5e08bb9cca0018dc1b42cdf52d186629",
+    "deploy/parser/pdf_geometry.py": "740244ec3a5fdcde35b3ea93215d1a8a52d8fb93522791b0d57b343b35c6ee7e",
+    "deploy/parser/PdfFeatures.java": "7af73f7e6ab738fb1bd124b9d9ffba8af60798b9b564a78be4a8667cd425aafa",
+    "deploy/parser/page_ocr.py": "12b25e5e7280faf6c418c6df44c58eaf04eefa3757f6ef2eb182028790f20b43",
+    "deploy/parser/image_units.py": "44dbba620dfa2060e5a905910295563c7fc8c24c2c7f1da6ea69728a4dca3cda",
+    "scripts/bundle.py": "c0680ef28fbeff553df10e7edf1164e02a4cf85374c429164312515f5f86fc9d",
+    "scripts/test_parser_worker.py": "7e5299bd0f643bfdad680a711c8a4f70d9e876c3739682b5f2d3ef9dcac1e572",
+    "scripts/configure_deployment.py": "6fea8957b33fdb08c735b64c7316e5f84015840eeeeefb68cce30520a2d60ec6",
+    "scripts/test_document_association_evaluation.py": "85379235df72bdf64d1cc41aa2ba608ad4525c76fef2cbb86eb3b7dda032613f",
+    "scripts/association_evaluation.py": "53813ec38f7d862556e717b394631ae43d2d06e5b4c63ccd303bbbbdc188c6f0",
+    "scripts/test_pdf_features.py": "0c114070a9c9e23a22568e6347d14c722b81d2ca69d790275a877698ed8f0328",
+    "scripts/validate_restore.py": "4397c2758bc48e70f36c11d42a3342e7afb51203b01486b9a08ef260566ecf8e",
+    "scripts/test_parser_image_geometry.py": "21c9b49444b06904d9df7574fc9f2af43d25cc1a8f5b446801818983649735ef",
+    "scripts/validate_boundary_fixtures.py": "685a8f87c381c0a2e58bdd4591874a72eb87fa8ff61f24c9bdddbd885e3861dc",
+    "scripts/integration_cloud.py": "49501960d49ebf633bbd5dc16c99ed40827de8ecfb5b665bff0e898ce7c7c78b",
+    "scripts/test_association_evaluation.py": "789a4a3ca60670becfc04af43f6daf95dab8a40c2f1f162a8c7ccb0f5707438f",
+    "scripts/test_bundle.py": "b70cf932efedd39e3b8a7acb54f1e2ce50ac557ff26e6ae160e3a74393c3682c",
+    "scripts/integration_postgres.py": "d936dda940ec65dd447c11cccb8eb876556cccdd43b265a0737c1c5998e942a0",
+    "scripts/test_evaluate.py": "bcd050320d2c93af60223b1c88d75aa8bc55eb274471e8a2a3ce79699fbbd4ca",
+    "scripts/instance_evaluation.py": "e32da5e7399fc3d138dcb3411d5268c2197bc51062494410c1b95aca1bea1808",
+    "scripts/test_parser_gateway.py": "e1ad242c8e62d3d72665fc909c9bfa1c5d869dd715cb3b0ba6a7597e7030864a",
+    "scripts/evaluate.py": "a7565f02b8786100b68fe3662d36fb458b5b74758aef4df46a6cd62718376752",
+    "scripts/integration_databases.py": "babcd8ce1d6daf7b8506b1378a4290edb3cac9c6d6fb73c0b01bf5d5de4c500e",
+    "scripts/test_instance_evaluation.py": "f30b3a76b35a9c11b7c3f5c00605ecce120480babe5c9a8368f96c3c0ccf7a40",
+    "scripts/patch_python_tds.py": "9ec0a65caa44af21b621610e26e5db4d0d81a70f2f96b54fa324b4ff1b3475bd",
+    "fixtures/layout/generate_pdf_fixtures.py": "040cae8fd17b6bae7e94dcadb4e470a7c0bed50e71f56fb167f9eb96025a9cd9",
+    "fixtures/layout/two-columns.png": "fa7395c5ae529f4a025eb935838b84da4d09b1ee780054e331da8f60719c475f",
+    "fixtures/layout/verify_gateway.py": "af2cf8a617f37996ff760014715d656e5f526d500e5a3373b0e89252d466413d",
+    "fixtures/layout/two-columns-native.pdf": "69eb0bbf7849da2ece8ecd6bf689e26602f44d234bbe8572a544ea1c6a6f8b63",
+    "fixtures/layout/single-record.png": "83a5879c73c859fb7a0bfa9603d46a564b5d97edd6b84764753533f4e46324b7",
+    "fixtures/layout/unlabelled-neighbour.png": "cfae2fae87adef9d2cbed110d4de7191b527419e43f76ffaf16a421835057549",
+    "fixtures/layout/two-columns-raster.pdf": "7ab5b50ba5adbffd44ee601f03345e95067239e8acbd65dd58b18e5c8de896ff",
+    "fixtures/layout/reference.json": "e2195580e63aa360e6121dd483047ee82fd05269413ed5c8b0595b6ac1428626",
+    "fixtures/layout/two-frames.tif": "dde8aa4ed8fdffc90213481aff7a6cb5b1729840b31410564bb8e851ea7443c8",
+    "fixtures/layout/README.md": "6b4e0f29035c78334b791c4b19510b75bbc13b609dce831a2686fc7f6c88d1ab",
+    "fixtures/layout/single-record-native.pdf": "58e133588f6730f9760ede9a5183578457390daf2ae4e90a6a95d38cc31116d6",
+    "fixtures/layout/two-rows.png": "e261b32c19ea77f4e60369b8797e3f6313f8453c263ddcee8410f2f900a32e13",
+    "fixtures/layout/two-pages-raster.pdf": "37d14cce1071231dc0588b1eda1842254887b818c6e8e96c091eaee55b65a1cd"
+  },
+  "external_network_disabled": true,
+  "temporary_containers_removed": true
+}

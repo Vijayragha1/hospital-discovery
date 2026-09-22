@@ -1,0 +1,40 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "detector_mode": "presidio",
+  "detector_version": "hospital-rules/1.0+sha256-cb11bf76a22b1454eae56bcea794afe475887bf0d1b7611b2b418a2a1ab204b9/presidio-2.2.364/spacy-3.8.16/model-en_core_web_lg-3.8.0/runtime-bundle-3084baf555bd12ff337b59e8a42564abb3c826f664d5bbde6256a89058808986",
+  "checks": {
+    "all_seven_original_objects_accounted": true,
+    "nested_csv_inner_reference_kept": true,
+    "nested_csv_outer_reference_not_inherited": true,
+    "nested_csv_orphan_clinical_record_retained": true,
+    "nested_csv_pii_preserved": true,
+    "independent_csv_positive_links_preserved": true,
+    "equals_patient_header_does_not_inherit_prior_id": true,
+    "equals_header_pii_and_clinical_content_retained": true,
+    "equals_header_evidence_stays_in_own_record": true,
+    "malformed_structured_cell_is_visible_gap": true,
+    "malformed_structured_cell_cannot_link": true,
+    "malformed_structured_cell_pii_preserved": true,
+    "malformed_structured_cell_clinical_content_preserved": true,
+    "embedded-scan.docx_typed_identifier_detected": true,
+    "embedded-scan.docx_partial_not_false_complete": true,
+    "embedded-scan.docx_unverified_layout_not_linked": true,
+    "embedded-frames.docx_typed_identifier_detected": true,
+    "embedded-frames.docx_partial_not_false_complete": true,
+    "embedded-frames.docx_unverified_layout_not_linked": true,
+    "docx_embedded_scan_identifier_detected": true,
+    "docx_both_embedded_frames_detected": true,
+    "embedded_original_frames_have_distinct_segments": true,
+    "embedded_hocr_page_markers_observed": true,
+    "raster_pii_and_clinical_content_retained": true,
+    "raster_unknown_patient_layout_not_linked": true,
+    "raster_layout_limit_recorded": true
+  },
+  "all_passed": true,
+  "coverage_counts": {
+    "full": 4,
+    "partial": 3
+  },
+  "notice": "Original synthetic file checks, not hospital accuracy acceptance. hOCR markers preserve observed embedded frame boundaries but do not prove independent Office inventory or arbitrary patient layout."
+}

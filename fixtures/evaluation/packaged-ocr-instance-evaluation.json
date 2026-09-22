@@ -1,0 +1,215 @@
+{
+  "created_utc": "2026-09-22T02:31:19.963506+00:00",
+  "split": "evaluation",
+  "synthetic": true,
+  "hospital_validated": false,
+  "unit": "object-level classification/entity presence, not entity spans or individual patients",
+  "object_presence_diagnostic_only": true,
+  "instance_scoring": {
+    "enabled": true,
+    "unit": "object_value_occurrence",
+    "normalization": "exact_nfc_v1",
+    "observations_complete": true,
+    "incomplete_reasons": [],
+    "original_inputs_unchanged": true,
+    "results": [
+      {
+        "category": "ocr",
+        "label": "personal_data:MRN",
+        "priority": true,
+        "unit": "object_value_occurrence",
+        "normalization": "exact_nfc_v1",
+        "sample_count": 2,
+        "positive_samples": 1,
+        "negative_samples": 1,
+        "negative_samples_with_false_positives": 0,
+        "expected_occurrences": 1,
+        "observed_occurrences": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_samples": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "observations_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "personal_data:PERSON",
+        "priority": false,
+        "unit": "object_value_occurrence",
+        "normalization": "exact_nfc_v1",
+        "sample_count": 2,
+        "positive_samples": 0,
+        "negative_samples": 2,
+        "negative_samples_with_false_positives": 1,
+        "expected_occurrences": 0,
+        "observed_occurrences": 1,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "target": 0.95,
+        "minimum_positive_and_negative_samples": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "observations_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "ocr",
+        "label": "personal_data:UHID",
+        "priority": true,
+        "unit": "object_value_occurrence",
+        "normalization": "exact_nfc_v1",
+        "sample_count": 2,
+        "positive_samples": 1,
+        "negative_samples": 1,
+        "negative_samples_with_false_positives": 0,
+        "expected_occurrences": 1,
+        "observed_occurrences": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_samples": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "observations_incomplete": false,
+        "result": "unvalidated"
+      }
+    ]
+  },
+  "association_scoring": {
+    "enabled": false,
+    "unit": "original_record_clinical_association_v1",
+    "normalization": "exact_nfc_v1",
+    "mapping_complete": false,
+    "incomplete_reasons": [],
+    "results": []
+  },
+  "detector_version": "hospital-rules/1.0+sha256-cb11bf76a22b1454eae56bcea794afe475887bf0d1b7611b2b418a2a1ab204b9/presidio-2.2.364/spacy-3.8.16/model-en_core_web_lg-3.8.0/runtime-bundle-3084baf555bd12ff337b59e8a42564abb3c826f664d5bbde6256a89058808986",
+  "detector_mode": "presidio",
+  "sample_count": 2,
+  "unexpected_objects": 0,
+  "duplicate_scanner_objects": 0,
+  "coverage_counts": {
+    "full": 2
+  },
+  "coverage_expectations_met": true,
+  "results": [
+    {
+      "category": "ocr",
+      "label": "personal_data:MRN",
+      "sample_count": 2,
+      "priority": true,
+      "positive_samples": 1,
+      "negative_samples": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": false,
+      "result": "unvalidated"
+    },
+    {
+      "category": "ocr",
+      "label": "personal_data:PERSON",
+      "sample_count": 2,
+      "priority": false,
+      "positive_samples": 0,
+      "negative_samples": 2,
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "tn": 1,
+      "precision": 0.0,
+      "recall": null,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": false,
+      "result": "unvalidated"
+    },
+    {
+      "category": "ocr",
+      "label": "personal_data:UHID",
+      "sample_count": 2,
+      "priority": true,
+      "positive_samples": 1,
+      "negative_samples": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "target": 0.95,
+      "minimum_positive_and_negative_samples": 30,
+      "insufficient_samples": true,
+      "coverage_incomplete": false,
+      "result": "unvalidated"
+    }
+  ],
+  "samples": [
+    {
+      "id": "sample-000001",
+      "category": "ocr",
+      "expected": [
+        "personal_data:MRN",
+        "personal_data:UHID"
+      ],
+      "actual": [
+        "personal_data:MRN",
+        "personal_data:PERSON",
+        "personal_data:UHID"
+      ],
+      "status": "full",
+      "reason": null,
+      "coverage_expectation_met": true
+    },
+    {
+      "id": "sample-000002",
+      "category": "ocr",
+      "expected": [],
+      "actual": [],
+      "status": "full",
+      "reason": null,
+      "coverage_expectation_met": true
+    }
+  ],
+  "priority_classes": {
+    "ocr": [
+      "personal_data:MRN",
+      "personal_data:UHID"
+    ]
+  },
+  "acceptance_blockers": [
+    "synthetic_reference_set",
+    "priority_classes_not_declared:database",
+    "priority_classes_not_declared:digital",
+    "priority_instance_metrics_unvalidated_or_below_target"
+  ],
+  "acceptance_candidate": false,
+  "limitations": [
+    "Instance scoring matches class and exact NFC-normalized value one-to-one within each source object",
+    "PII occurrences do not measure original span, page or record identity",
+    "Clinical association requires v3 supported original record mappings; no semantic diagnosis extraction accuracy",
+    "Unmapped PDF/OCR/Office layouts and schema-only PII instance units remain unsupported",
+    "Repeated values count as occurrences, not unique entities or patients",
+    "Object-label metrics are diagnostic only and do not establish instance recall or OCR character accuracy",
+    "Hospital reviewer sign-off required"
+  ]
+}

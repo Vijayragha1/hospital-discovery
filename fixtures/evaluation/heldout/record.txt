@@ -1,0 +1,4 @@
+SYNTHETIC HELD-OUT EXAMPLE — NOT A REAL PATIENT
+UHID: TEST-9911
+Lab report: haemoglobin test ordered.
+Contact: heldout@example.invalid

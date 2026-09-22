@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "split": "calibration",
+  "synthetic": true,
+  "instance_scoring": {"unit": "object_value_occurrence", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "sources": [{
+    "kind": "filesystem", "config": {"root": "calibration"}, "category": "digital",
+    "samples": [{
+      "id": "cal-001", "location": "example.txt", "expected_status": "full",
+      "expected": ["personal_data:MRN", "personal_data:EMAIL_ADDRESS", "patient_linked_health:HEALTH_INFORMATION"],
+      "instances": [
+        {"entity_type": "MRN", "classification": "personal_data", "value": "DEMO-2007", "occurrence_id": "synthetic-mrn-1"},
+        {"entity_type": "EMAIL_ADDRESS", "classification": "personal_data", "value": "calibration@example.invalid", "occurrence_id": "synthetic-email-1"}
+      ]
+    }]
+  }]
+}

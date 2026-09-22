@@ -1,0 +1,108 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "cloud_provider_validated": false,
+  "detector_mode": "rules",
+  "fixtures": [
+    "MinIO HTTPS",
+    "Azurite Blob HTTPS",
+    "Azurite Table HTTPS"
+  ],
+  "presidio_smoke_requested": true,
+  "s3_grant_restrictions_verified": false,
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "s3_tls_connection_read_list",
+      "passed": true
+    },
+    {
+      "check": "s3_download_detection",
+      "passed": true
+    },
+    {
+      "check": "s3_exclusions_accounted",
+      "passed": true
+    },
+    {
+      "check": "s3_no_raw_values",
+      "passed": true
+    },
+    {
+      "check": "s3_listing_limit_visible",
+      "passed": true
+    },
+    {
+      "check": "s3_opt_in_evidence",
+      "passed": true
+    },
+    {
+      "check": "azure_blob_tls_read_list_sas",
+      "passed": true
+    },
+    {
+      "check": "azure_blob_download_detection",
+      "passed": true
+    },
+    {
+      "check": "azure_blob_no_raw_values",
+      "passed": true
+    },
+    {
+      "check": "azure_blob_read_sas_rejects_write",
+      "passed": true
+    },
+    {
+      "check": "azure_table_tls_read_sas",
+      "passed": true
+    },
+    {
+      "check": "azure_table_1000_entity_sampling",
+      "passed": true
+    },
+    {
+      "check": "azure_table_entity_boundaries",
+      "passed": true
+    },
+    {
+      "check": "azure_table_no_raw_keys_or_values",
+      "passed": true
+    },
+    {
+      "check": "azure_table_all_inspected_entities_stable",
+      "passed": true
+    },
+    {
+      "check": "azure_table_full_scan_disabled",
+      "passed": true
+    },
+    {
+      "check": "azure_table_read_sas_rejects_write",
+      "passed": true
+    },
+    {
+      "check": "s3_presidio_name_email_uhid",
+      "passed": true
+    },
+    {
+      "check": "azure_blob_presidio_name_email_uhid",
+      "passed": true
+    },
+    {
+      "check": "azure_table_presidio_name_email_uhid",
+      "passed": true
+    }
+  ],
+  "diagnostics": [
+    {
+      "kind": "azure_blob",
+      "status": "full",
+      "reason": null
+    },
+    {
+      "kind": "azure_blob",
+      "status": "full",
+      "reason": null
+    }
+  ]
+}

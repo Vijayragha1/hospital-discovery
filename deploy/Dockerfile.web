@@ -1,0 +1,16 @@
+ARG NODE_IMAGE=node:22-alpine
+ARG CADDY_IMAGE=caddy:2-alpine
+FROM ${NODE_IMAGE} AS build
+WORKDIR /src
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci --ignore-scripts
+COPY frontend/ ./
+RUN npm run build
+FROM ${CADDY_IMAGE}
+RUN apk add --no-cache iptables musl-utils \
+    && setcap -r /usr/bin/caddy
+COPY --from=build /src/dist /srv
+COPY deploy/Caddyfile /etc/caddy/Caddyfile
+COPY deploy/ingress-guard.sh /usr/local/bin/ingress-guard.sh
+USER 10001:10001
+EXPOSE 8443

@@ -1,0 +1,34 @@
+ARG JAVA_IMAGE=eclipse-temurin:21-jre-jammy
+FROM ${JAVA_IMAGE} AS parser-runtime
+ARG TIKA_VERSION=3.3.2
+# Online staging only. No proprietary Microsoft fonts or cloud parsers are added.
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+      tesseract-ocr tesseract-ocr-eng fonts-dejavu-core curl gnupg ca-certificates \
+      python3 python3-pil poppler-utils \
+    && mkdir -p /opt/tika /tmp/keys \
+    && chmod 700 /tmp/keys \
+    && curl --fail --location --retry 3 "https://archive.apache.org/dist/tika/${TIKA_VERSION}/tika-server-standard-${TIKA_VERSION}.jar" -o /opt/tika/server.jar \
+    && curl --fail --location --retry 3 "https://archive.apache.org/dist/tika/${TIKA_VERSION}/tika-server-standard-${TIKA_VERSION}.jar.asc" -o /tmp/server.jar.asc \
+    && curl --fail --location --retry 3 https://downloads.apache.org/tika/KEYS -o /tmp/KEYS \
+    && gpg --homedir /tmp/keys --batch --import /tmp/KEYS \
+    && gpg --homedir /tmp/keys --batch --verify /tmp/server.jar.asc /opt/tika/server.jar \
+    && sha256sum /opt/tika/server.jar > /opt/tika/server.jar.sha256 \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
+
+FROM parser-runtime AS parser-compiler
+RUN apt-get update && apt-get install --yes --no-install-recommends openjdk-17-jdk-headless \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
+COPY deploy/parser/PdfFeatures.java /build/PdfFeatures.java
+RUN mkdir -p /compiled && javac --release 17 -cp /opt/tika/server.jar -d /compiled /build/PdfFeatures.java
+
+FROM parser-runtime
+COPY deploy/tika-config.xml /opt/tika/tika-config.xml
+COPY deploy/log4j2.xml /opt/tika/log4j2.xml
+COPY deploy/parser/ /opt/parser/
+COPY --from=parser-compiler /compiled/ /opt/parser/
+COPY deploy/parser_gateway.py /opt/parser_gateway.py
+ENV JAVA_TOOL_OPTIONS="-Dlog4j.configurationFile=/opt/tika/log4j2.xml"
+WORKDIR /opt/tika
+USER 10001:10001
+EXPOSE 9997 9998
+ENTRYPOINT ["python3", "/opt/parser_gateway.py"]

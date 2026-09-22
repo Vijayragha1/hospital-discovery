@@ -1,0 +1,54 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "checks": {
+    "https_health": true,
+    "local_ui_assets": true,
+    "guided_registration_ui_assets": true,
+    "authenticated_login": true,
+    "secure_httponly_session": true,
+    "known_connector_setup": true,
+    "known_connector_ui_assets": true,
+    "credential_update_ui_assets": true,
+    "guided_setup_approved_locations": true,
+    "failed_connect_creates_no_source": true,
+    "guided_connect_verified_before_registration": true,
+    "read_only_source_test": true,
+    "presidio_detector_used": true,
+    "mixed_pdf_ocr_identifiers": true,
+    "printed_image_identifiers": true,
+    "encrypted_file_visible_gap": true,
+    "no_false_complete_parser_coverage": true,
+    "image_frame_completion_recorded": true,
+    "pdf_original_page_ocr_completion_recorded": true,
+    "pdf_ancillary_inventory_integrated": true,
+    "coverage_detail_ui_assets": true,
+    "no_raw_values_exported": true,
+    "ocr_actual_values_revealed": true,
+    "evidence_excerpts_bounded": true,
+    "default_capture_disabled": true,
+    "coverage_csv_export": true,
+    "finding_review": true,
+    "persistent_gaps_not_removed": true,
+    "complete_image_repeat_is_comparable": true,
+    "access_and_review_audited": true,
+    "no_raw_evidence_in_audit": true,
+    "capture_option_preserves_comparability": true
+  },
+  "all_passed": true,
+  "scan_coverage": [
+    {
+      "partial": 2,
+      "full": 1
+    },
+    {
+      "partial": 2,
+      "full": 1
+    }
+  ],
+  "comparison_summary": {
+    "not_comparable": 2,
+    "unchanged": 1
+  },
+  "notice": "Synthetic functional checks, not hospital accuracy acceptance."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "split": "evaluation",
+  "synthetic": true,
+  "instance_scoring": {"unit": "object_value_occurrence", "normalization": "exact_nfc_v1", "annotations_complete": true},
+  "priority_classes": {
+    "database": ["personal_data:MRN", "personal_data:EMAIL_ADDRESS"],
+    "digital": ["personal_data:MRN", "personal_data:UHID", "personal_data:EMAIL_ADDRESS", "patient_linked_health:HEALTH_INFORMATION"],
+    "ocr": ["personal_data:MRN", "personal_data:EMAIL_ADDRESS"]
+  },
+  "sources": [{
+    "kind": "filesystem", "config": {"root": "heldout"}, "category": "digital",
+    "samples": [
+      {"id": "test-001", "location": "record.txt", "expected_status": "full",
+       "expected": ["personal_data:UHID", "personal_data:EMAIL_ADDRESS", "patient_linked_health:HEALTH_INFORMATION"],
+       "instances": [
+         {"entity_type": "UHID", "classification": "personal_data", "value": "TEST-9911", "occurrence_id": "synthetic-uhid-1"},
+         {"entity_type": "EMAIL_ADDRESS", "classification": "personal_data", "value": "heldout@example.invalid", "occurrence_id": "synthetic-email-1"}
+       ]},
+      {"id": "test-002", "location": "negative.txt", "expected": [], "expected_status": "full", "instances": []},
+      {"id": "test-003", "location": "separate-records.txt", "expected_status": "full",
+       "expected": ["personal_data:MRN", "clinical_content:HEALTH_INFORMATION"],
+       "instances": [
+         {"entity_type": "MRN", "classification": "personal_data", "value": "SYN-5501", "occurrence_id": "synthetic-mrn-1"}
+       ]},
+      {"id": "test-004", "location": "unsupported.dcm", "expected": [], "expected_status": "unsupported", "instances": []},
+      {"id": "test-005", "location": "archive.zip", "expected": [], "expected_status": "excluded", "instances": []}
+    ]
+  }]
+}

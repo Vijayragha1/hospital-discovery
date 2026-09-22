@@ -1,0 +1,14 @@
+# Opt-in only AFTER hospital firewall isolation and allowlist tests pass.
+# SOURCE_NETWORK must be a pre-provisioned, firewall-controlled Docker bridge.
+# This file adds reachability; it does NOT enforce an egress firewall itself.
+services:
+  api:
+    networks:
+      source_access:
+  worker:
+    networks:
+      source_access:
+networks:
+  source_access:
+    external: true
+    name: ${SOURCE_NETWORK:?Set SOURCE_NETWORK to the approved firewall-controlled network}

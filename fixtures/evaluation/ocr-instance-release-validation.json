@@ -1,0 +1,79 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "created_utc": "2026-09-21T18:55:47.372528+00:00",
+  "release_version": "20260921184022",
+  "runtime_identity": "02a39c906d68503b6cbc8708b8565ed75e2b035ebfbe3f71bea7c4ac1817dc30",
+  "backend_evaluation_packaging_tests": 427,
+  "subtests": 44,
+  "host_skipped_tests": 4,
+  "test_library_warnings": 2,
+  "host_regression_scope": "Regression before the final parser-helper runtime adjustments; final parser and gateway independently validated by the Linux suite and packaged checks below.",
+  "linux_parser_gateway_tests": 28,
+  "pdf_feature_original_byte_cases": 33,
+  "isolated_ocr_checks": 15,
+  "frontend_helper_tests": 31,
+  "frontend_production_build_passed": true,
+  "packaged_https_checks": 32,
+  "packaged_comparison_checks": 10,
+  "packaged_ocr_instance_evaluation": {
+    "sample_count": 2,
+    "coverage_counts": {
+      "full": 2
+    },
+    "observations_complete": true,
+    "acceptance_candidate": false,
+    "report": "packaged-ocr-instance-evaluation.json",
+    "note": "Two synthetic OCR objects; MRN/UHID exact occurrences observed. A non-priority PERSON false positive is reported. Not hospital accuracy acceptance."
+  },
+  "default_egress_checks_passed": true,
+  "browser_ocr_detail_view_verified": true,
+  "browser_ocr_detail_view_status": "Corrected production UI inspected in native localhost preview using an explicitly labeled copy of actual packaged synthetic results. Mixed PDF 2/2 pages, plain image 1/1 frame, encrypted PDF unknown inventory; partial coverage and legibility limitations visible. This is UI presentation evidence, separate from packaged worker execution.",
+  "offline_image_load_verified": true,
+  "offline_model_load_verified": true,
+  "parser_source_image_hashes_match": true,
+  "parser_module_count": 5,
+  "backend_source_image_hashes_match": true,
+  "backend_module_count": 20,
+  "api_worker_runtime_stamp_matches": true,
+  "image_ids_match_lock": true,
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260921184022",
+      "id": "sha256:b765b8e2bc50968d2450b2e216d2a150ab5379fe772413c654a492e171c48bd8"
+    },
+    "postgres": {
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260921184022-r2",
+      "id": "sha256:0f32819d7339d08ea214a35a568717f16c0227f30eb7ce86d227a6dd28b2db05"
+    },
+    "web": {
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+    }
+  },
+  "historical_not_rerun": {
+    "postgres_live_checks": 17,
+    "mysql_mssql_live_checks": 20,
+    "cloud_emulator_checks": 20
+  },
+  "outstanding_implementation": [
+    "PDF native/OCR observations and ancillary content are not fully reconciled; PDFs remain partial.",
+    "Original span/record and patient-to-diagnosis association scoring is not implemented; clinical/schema-only priority units block evaluation acceptance.",
+    "Office and fallback Tika-only extraction remain partial."
+  ],
+  "hospital_inputs_pending": [
+    "Hosting and approved private source routes",
+    "First source engine/version, approved scope and read-only credentials",
+    "Hospital identifier formats and reviewed reference/held-out original sources",
+    "Workload, scan windows, retention, encryption, recovery and acceptance requirements"
+  ],
+  "notice": "Synthetic implementation verification only. No hospital system or patient data was accessed. Not hospital deployment, accuracy/workload acceptance, unique-patient counts, or proof of recognition accuracy.",
+  "frontend_metadata_regression": "Actual API object metadata and legacy JSON strings accepted; regression uses deployed-synthetic-findings.json shapes.",
+  "frontend_asset": "index-DjV-NUiN.js",
+  "final_web_asset_served_hash_matches_build": true,
+  "superseded_by": "reconciliation-release-validation.json"
+}

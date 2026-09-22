@@ -1,0 +1,297 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "checks": {
+    "two_original_tiff_frames_completed": true,
+    "both_frame_values_reach_output": true,
+    "frame_boundaries_preserved": true,
+    "plain_tiff_nonvisual_metadata_absent": true,
+    "png_private_metadata_flagged": true,
+    "no_private_metadata_value_in_report": true,
+    "plain_png_completed": true,
+    "blank_frame_processed_without_legibility_claim": true,
+    "frame_cap_visible": true,
+    "text_cap_visible": true,
+    "missing_tesseract_visible": true,
+    "mixed_pdf_original_pages_completed": true,
+    "pdf_ancillary_not_inferred_from_page_completion": true,
+    "integrated_pdf_feature_inventory": true,
+    "encrypted_pdf_not_complete": true
+  },
+  "all_passed": true,
+  "accounting": {
+    "two-frames.tif()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 2,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 17
+        },
+        {
+          "ordinal": 2,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 18
+        }
+      ],
+      "page_accounting_complete": true,
+      "units_ocr_completed": 2,
+      "ocr_legibility_verified": false,
+      "reason_codes": [],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "with-metadata.png()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 1,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 17
+        }
+      ],
+      "page_accounting_complete": true,
+      "units_ocr_completed": 1,
+      "ocr_legibility_verified": false,
+      "reason_codes": [],
+      "nonvisual_content_present": true,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "plain.png()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 1,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 17
+        }
+      ],
+      "page_accounting_complete": true,
+      "units_ocr_completed": 1,
+      "ocr_legibility_verified": false,
+      "reason_codes": [],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "blank.png()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 1,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 1
+        }
+      ],
+      "page_accounting_complete": true,
+      "units_ocr_completed": 1,
+      "ocr_legibility_verified": false,
+      "reason_codes": [],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "two-frames.tif('--max-pages', '1')False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 2,
+      "units_omitted": 1,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 17
+        }
+      ],
+      "page_accounting_complete": false,
+      "units_ocr_completed": 1,
+      "ocr_legibility_verified": false,
+      "reason_codes": [
+        "page_limit"
+      ],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "plain.png('--max-text-chars', '3')False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 1,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "limited",
+          "text_truncated": true,
+          "text_characters": 3
+        }
+      ],
+      "page_accounting_complete": false,
+      "units_ocr_completed": 0,
+      "ocr_legibility_verified": false,
+      "reason_codes": [
+        "text_limit"
+      ],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "plain.png()True": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 1,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "failed",
+          "text_truncated": false,
+          "text_characters": 0
+        }
+      ],
+      "page_accounting_complete": false,
+      "units_ocr_completed": 0,
+      "ocr_legibility_verified": false,
+      "reason_codes": [
+        "dependency_unavailable"
+      ],
+      "nonvisual_content_present": false,
+      "embedded_annotation_coverage": "not_applicable",
+      "segment_numbers_are_original_unit_ordinals": true
+    },
+    "mixed.pdf()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": 2,
+      "units_omitted": 0,
+      "units": [
+        {
+          "ordinal": 1,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 69
+        },
+        {
+          "ordinal": 2,
+          "render_status": "completed",
+          "ocr_status": "completed",
+          "text_truncated": false,
+          "text_characters": 94
+        }
+      ],
+      "page_accounting_complete": true,
+      "units_ocr_completed": 2,
+      "ocr_legibility_verified": false,
+      "reason_codes": [],
+      "nonvisual_content_present": true,
+      "embedded_annotation_coverage": "unverified",
+      "segment_numbers_are_original_unit_ordinals": true,
+      "pdf_features": {
+        "inventory_complete": true,
+        "original_page_count": 2,
+        "encrypted": false,
+        "can_extract": true,
+        "ancillary_absent": false,
+        "feature_counts": {
+          "actions": 0,
+          "annotations": 0,
+          "associated_files": 0,
+          "embedded_name_trees": 0,
+          "embedded_streams": 0,
+          "file_specifications": 0,
+          "forms": 0,
+          "image_resources": 1,
+          "image_uses": 1,
+          "interactive_features": 0,
+          "layers": 0,
+          "metadata": 0,
+          "other_text": 8,
+          "parser_warnings": 0,
+          "unknown_annotations": 0,
+          "unknown_streams": 0,
+          "unknown_structure": 0,
+          "unsupported_operators": 0,
+          "unsupported_resources": 0,
+          "unused_images": 0,
+          "unverified_image_uses": 0,
+          "xfa": 0
+        }
+      }
+    },
+    "encrypted.pdf()False": {
+      "extractor": "isolated_page_ocr",
+      "ocr_requested": true,
+      "ocr_language": "eng",
+      "ocr_policy": "every_original_page_or_frame",
+      "coverage_scope": "rendered_pages_or_frames",
+      "original_unit_count": null,
+      "units_omitted": null,
+      "units": [],
+      "page_accounting_complete": false,
+      "units_ocr_completed": 0,
+      "ocr_legibility_verified": false,
+      "reason_codes": [
+        "inventory_failed",
+        "process_failed"
+      ],
+      "nonvisual_content_present": true,
+      "embedded_annotation_coverage": "unverified",
+      "segment_numbers_are_original_unit_ordinals": true,
+      "pdf_features": null
+    }
+  },
+  "notice": "Actual isolated Linux Poppler/Pillow/Tesseract processing with external networking disabled. OCR completion does not establish legibility or accuracy. PDF native/OCR channel and ancillary reconciliation remain separate."
+}

@@ -1,0 +1,153 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "created_utc": "2026-09-21T19:37:00.797490+00:00",
+  "release_version": "20260921193101",
+  "runtime_identity": "529f59832862830c1f5c927cabf01571c07ed04c0ff1afeceb36b5216d217234",
+  "platform": "linux/amd64",
+  "host_regression": {
+    "passed": 489,
+    "subtests_passed": 44,
+    "skipped": 70,
+    "setup_errors": 9,
+    "assertion_failures": 0,
+    "dependency_warnings": 2,
+    "skip_breakdown": {
+      "real_pdfbox_cases_run_separately": 65,
+      "linux_supervisor": 3,
+      "poppler_missing_on_host_path": 1,
+      "pillow_missing_in_host_venv": 1
+    },
+    "setup_error_reason": "Subagent sandbox denied localhost socket binding for nine gateway fixtures.",
+    "separate_resolution": "The 42 passing Linux parser/gateway cases cover these platform/dependency skips and socket setup cases. All 65 PDFBox cases separately passed in the actual Linux parser image.",
+    "command": "env -u PDF_FEATURES_COMMAND -u PDF_FEATURES_IMAGE PYTHONPATH=backend:scripts python -m pytest backend/tests scripts -q -rs"
+  },
+  "linux_parser_gateway_tests": 42,
+  "pdf_feature_original_byte_cases": 65,
+  "isolated_ocr_checks": 15,
+  "packaged_pdf_reconciliation_checks": 17,
+  "packaged_https_checks": 32,
+  "packaged_comparison_checks": 10,
+  "packaged_ocr_instance_evaluation": {
+    "sample_count": 2,
+    "coverage_counts": {
+      "full": 2
+    },
+    "observations_complete": true,
+    "acceptance_candidate": false,
+    "report": "packaged-ocr-instance-evaluation.json",
+    "note": "Two synthetic raster objects; exact MRN/UHID occurrences observed. Non-priority PERSON false positive retained in report. Not hospital accuracy acceptance."
+  },
+  "packaged_original_record_evaluation": {
+    "sample_count": 1,
+    "coverage_counts": {
+      "full": 1
+    },
+    "mapping_complete": true,
+    "acceptance_candidate": false,
+    "measures": [
+      {
+        "category": "digital",
+        "label": "clinical_content:HEALTH_INFORMATION",
+        "measure": "record_clinical_presence",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 1,
+        "positive_source_objects": 1,
+        "negative_source_objects": 0,
+        "positive_records": 3,
+        "negative_records": 2,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      },
+      {
+        "category": "digital",
+        "label": "patient_linked_health:HEALTH_INFORMATION",
+        "measure": "record_patient_reference_association",
+        "unit": "original_record_clinical_association_v1",
+        "priority": true,
+        "sample_count": 1,
+        "positive_source_objects": 1,
+        "negative_source_objects": 0,
+        "positive_records": 2,
+        "negative_records": 3,
+        "annotated_records": 5,
+        "mapped_records": 5,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "target": 0.95,
+        "minimum_positive_and_negative_source_objects": 30,
+        "insufficient_samples": true,
+        "coverage_incomplete": false,
+        "mapping_incomplete": false,
+        "result": "unvalidated"
+      }
+    ],
+    "report": "packaged-association-evaluation.json",
+    "note": "One synthetic JSON object with five original records; clinical presence and exact patient-reference association are distinct measures. No semantic diagnosis extraction or hospital accuracy claim."
+  },
+  "default_egress_checks_passed": true,
+  "offline_image_load_verified": true,
+  "offline_model_load_verified": true,
+  "evaluation_packaging_script_hashes_match": true,
+  "script_module_count": 16,
+  "parser_source_image_hashes_match": true,
+  "parser_module_count": 6,
+  "backend_source_image_hashes_match": true,
+  "backend_module_count": 21,
+  "api_worker_runtime_stamp_matches": true,
+  "image_ids_match_lock": true,
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260921193101",
+      "id": "sha256:9d4392265cf5a50486bb519c7d70c1816d1911901322a7182ec88d8a799d4ded"
+    },
+    "postgres": {
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260921193101",
+      "id": "sha256:0cb462916a0665a6bf469f96cbd72de021fcb031bc42d480736119e73e03c719"
+    },
+    "web": {
+      "name": "hospital-discovery-web:pilot-20260921184022-r2",
+      "id": "sha256:b6b93ae0954de92db1882edad4643b2dcd2da99e09da197f4e37d6d0c9cfef8b"
+    }
+  },
+  "historical_not_rerun": {
+    "frontend_helper_tests": 31,
+    "frontend_build_and_browser_inspection": "Unchanged web image from 20260921184022; latest HTTPS checks verify served assets and workflows, not a fresh browser visual inspection.",
+    "postgres_live_checks": 17,
+    "mysql_mssql_live_checks": 20,
+    "cloud_emulator_checks": 20
+  },
+  "outstanding_implementation": [
+    "Native-bearing PDFs retain partial coverage because independent complete native source representation remains unverified.",
+    "Uninspected ancillary content, encoded-image metadata and Office/Tika-only extraction remain partial.",
+    "Original patient-record mappings for arbitrary PDF/OCR/Office layouts and schema-only PII occurrence units remain unsupported.",
+    "Record clinical presence/patient-reference evaluation is not semantic diagnosis extraction accuracy."
+  ],
+  "hospital_inputs_pending": [
+    "Hosting placement and approved private source routes",
+    "First source engine/version, scope and read-only credentials",
+    "Hospital identifier formats and reviewed reference/held-out original sources",
+    "Workload limits, scan windows, retention, encryption, recovery and acceptance requirements"
+  ],
+  "notice": "Synthetic implementation verification only. No hospital system or patient data was accessed. Not hospital deployment, accuracy/workload acceptance, unique-patient counts, or proof of recognition accuracy.",
+  "superseded_by": "boundary-release-validation.json"
+}

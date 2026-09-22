@@ -1,0 +1,21 @@
+# Mount a hospital-managed directory containing only public CA certificates.
+# Use with the base compose file and the separately approved source network.
+# Set SOURCE_DATABASE_CA_FILE=/source-trust/database-ca.pem in deploy/.env.
+# Optional SOURCE_CLOUD_CA_FILE=/source-trust/cloud-ca.pem trusts a private cloud CA.
+services:
+  api:
+    volumes:
+      - type: bind
+        source: ${SOURCE_TRUST_DIR:?Set SOURCE_TRUST_DIR to the approved CA certificate directory}
+        target: /source-trust
+        read_only: true
+        bind:
+          create_host_path: false
+  worker:
+    volumes:
+      - type: bind
+        source: ${SOURCE_TRUST_DIR:?Set SOURCE_TRUST_DIR to the approved CA certificate directory}
+        target: /source-trust
+        read_only: true
+        bind:
+          create_host_path: false

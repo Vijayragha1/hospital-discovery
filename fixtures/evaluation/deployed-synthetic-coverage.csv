@@ -1,0 +1,4 @@
+location,status,reason,examined,unit,findings
+encrypted.pdf,partial,page_or_frame_ocr_incomplete,0,pages,0
+mixed.pdf,partial,pdf_native_ocr_and_nonpage_coverage_unverified,2,pages,9
+printed.png,full,None,1,frames,3

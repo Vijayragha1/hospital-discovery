@@ -1,0 +1,59 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "created_utc": "2026-09-21T18:10:25.867379+00:00",
+  "release_version": "20260921180218",
+  "runtime_identity": "99237fdc88faa8b5032abb5d2ed2da4b4403e39a3cfd0386ffb0a48a9c3f922b",
+  "backend_evaluation_packaging_tests": 332,
+  "subtests": 44,
+  "test_library_warnings": 2,
+  "frontend_helper_tests": 24,
+  "frontend_production_build_passed": true,
+  "packaged_https_checks": 27,
+  "packaged_comparison_checks": 10,
+  "default_egress_checks_passed": true,
+  "browser_comparison_view_verified": true,
+  "browser_comparison_data": "Synthetic actual-worker scans; MRN disappears, UHID appears, email recognizer count changes from one to two.",
+  "backend_source_image_hashes_match": true,
+  "backend_module_count": 19,
+  "api_worker_runtime_stamp_matches": true,
+  "image_ids_match_lock": true,
+  "offline_image_load_verified": true,
+  "offline_model_load_verified": true,
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260921180218",
+      "id": "sha256:e8abf69c0cf1096ab75edaf98c8dfc07c1175ef5aaf0cf556b410a897bf04f33"
+    },
+    "postgres": {
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260918183527",
+      "id": "sha256:d52b99761a9ab5dd598700fda67c9dc612d37f14cea3a79220f865a7746da7c4"
+    },
+    "web": {
+      "name": "hospital-discovery-web:pilot-20260921180218",
+      "id": "sha256:605ab2686da83d539fa5d6011cdb2d6e0add5cb5d568dd57e09bace7f5174712"
+    }
+  },
+  "historical_not_rerun": {
+    "postgres_live_checks": 17,
+    "mysql_mssql_live_checks": 20,
+    "cloud_emulator_checks": 20
+  },
+  "outstanding_implementation": [
+    "Verified original-page/frame OCR completeness accounting",
+    "Entity/instance-level original-source accuracy evaluation"
+  ],
+  "hospital_inputs_pending": [
+    "Hosting and private source routes",
+    "First source engine/version and read-only access",
+    "Identifier formats and reviewed reference/held-out data",
+    "Workload, retention, encryption and acceptance requirements"
+  ],
+  "notice": "Synthetic functional verification only. Not a hospital deployment, hospital accuracy/workload acceptance, unique-patient count, or proof of complete OCR coverage.",
+  "historical": true,
+  "superseded_by": "ocr-instance-release-validation.json"
+}

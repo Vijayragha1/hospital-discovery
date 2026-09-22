@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "hospital_validated": false,
+  "backend_regression_tests": 239,
+  "credential_api_tests": 45,
+  "backend_tests_total": 284,
+  "frontend_helper_tests": 18,
+  "postgres_live_checks": 17,
+  "packaged_https_checks": 27,
+  "default_egress_checks_passed": true,
+  "browser_credential_form_checked": true,
+  "browser_credential_submission_tested": false,
+  "backend_source_image_hashes_match": true,
+  "offline_image_load_verified": true,
+  "offline_model_load_verified": true,
+  "images": {
+    "api": {
+      "name": "hospital-discovery-api:pilot-20260921174128",
+      "id": "sha256:45f5922a4598927d7bd0ec06596de14b6bf3b21e3ff732685bf281e12c63ea58"
+    },
+    "postgres": {
+      "name": "hospital-discovery-postgres:pilot-20260918183527",
+      "id": "sha256:aa90e97ee862e558111d34cfb8b2c4bec768c2b039fb791341686928560263b3"
+    },
+    "tika": {
+      "name": "hospital-discovery-tika:pilot-20260918183527",
+      "id": "sha256:d52b99761a9ab5dd598700fda67c9dc612d37f14cea3a79220f865a7746da7c4"
+    },
+    "web": {
+      "name": "hospital-discovery-web:pilot-20260921174128",
+      "id": "sha256:3d85954a45199dfd71e02274240c804127edddf694b81ad811164e139da79b09"
+    }
+  },
+  "historical_not_rerun": {
+    "mysql_mssql_live_checks": 20,
+    "cloud_emulator_checks": 20
+  },
+  "notice": "Historical synthetic self-host hardening release. Live PostgreSQL checks belong to this release; MySQL/SQL Server and cloud checks were retained from an earlier release. Current release evidence is in comparison-release-validation.json. No hospital acceptance.",
+  "historical": true,
+  "superseded_by": "comparison-release-validation.json"
+}

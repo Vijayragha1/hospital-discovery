@@ -1,0 +1,774 @@
+{
+  "schema_version": 3,
+  "split": "calibration",
+  "synthetic": true,
+  "instance_scoring": {
+    "unit": "object_value_occurrence",
+    "normalization": "exact_nfc_v1",
+    "annotations_complete": true
+  },
+  "association_scoring": {
+    "unit": "original_record_clinical_association_v1",
+    "normalization": "exact_nfc_v1",
+    "annotations_complete": true
+  },
+  "priority_classes": {
+    "ocr": [
+      "personal_data:UHID",
+      "patient_linked_health:HEALTH_INFORMATION"
+    ],
+    "digital": [
+      "personal_data:UHID",
+      "patient_linked_health:HEALTH_INFORMATION"
+    ]
+  },
+  "sources": [
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "single-record.png",
+          "location": "single-record.png",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "83a5879c73c859fb7a0bfa9603d46a564b5d97edd6b84764753533f4e46324b7",
+              "unit_kind": "frame",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-columns.png",
+          "location": "two-columns.png",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "fa7395c5ae529f4a025eb935838b84da4d09b1ee780054e331da8f60719c475f",
+              "unit_kind": "frame",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    0.5,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0.5,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-rows.png",
+          "location": "two-rows.png",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "e261b32c19ea77f4e60369b8797e3f6313f8453c263ddcee8410f2f900a32e13",
+              "unit_kind": "frame",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    0.5
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0.5,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "unlabelled-neighbour.png",
+          "location": "unlabelled-neighbour.png",
+          "expected": [
+            "personal_data:UHID",
+            "clinical_content:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "cfae2fae87adef9d2cbed110d4de7191b527419e43f76ffaf16a421835057549",
+              "unit_kind": "frame",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    0.5,
+                    1
+                  ]
+                },
+                "clinical": false,
+                "patient_reference": null
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0.5,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-frames.tif",
+          "location": "two-frames.tif",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "dde8aa4ed8fdffc90213481aff7a6cb5b1729840b31410564bb8e851ea7443c8",
+              "unit_kind": "frame",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                },
+                {
+                  "ordinal": 2,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 2,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "digital",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-columns-native.pdf",
+          "location": "two-columns-native.pdf",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "partial",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "69eb0bbf7849da2ece8ecd6bf689e26602f44d234bbe8572a544ea1c6a6f8b63",
+              "unit_kind": "page",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    0.5,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0.5,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-columns-raster.pdf",
+          "location": "two-columns-raster.pdf",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "7ab5b50ba5adbffd44ee601f03345e95067239e8acbd65dd58b18e5c8de896ff",
+              "unit_kind": "page",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    0.5,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0.5,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "ocr",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-pages-raster.pdf",
+          "location": "two-pages-raster.pdf",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "full",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX200002"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "37d14cce1071231dc0588b1eda1842254887b818c6e8e96c091eaee55b65a1cd",
+              "unit_kind": "page",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                },
+                {
+                  "ordinal": 2,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 2,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX200002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "digital",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "single-record-native.pdf",
+          "location": "single-record-native.pdf",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "partial",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "58e133588f6730f9760ede9a5183578457390daf2ae4e90a6a95d38cc31116d6",
+              "unit_kind": "page",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "filesystem",
+      "category": "digital",
+      "config": {
+        "root": "../outputs/hospital-discovery/fixtures/layout"
+      },
+      "samples": [
+        {
+          "id": "two-columns-repeated-native.pdf",
+          "location": "two-columns-repeated-native.pdf",
+          "expected": [
+            "personal_data:UHID",
+            "patient_linked_health:HEALTH_INFORMATION"
+          ],
+          "expected_status": "partial",
+          "instances": [
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            },
+            {
+              "entity_type": "UHID",
+              "classification": "personal_data",
+              "value": "FX100001"
+            }
+          ],
+          "records": {
+            "mapping": "document_rectangles_v1",
+            "document": {
+              "sha256": "17702216cbc5719f9ab5dd45ef5a5af676b93fe97cf15e76514d9372dbcf6613",
+              "unit_kind": "page",
+              "coordinate_space": "rendered_unit_normalized_v1",
+              "units": [
+                {
+                  "ordinal": 1,
+                  "pixel_width": 2000,
+                  "pixel_height": 1200
+                }
+              ]
+            },
+            "items": [
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0,
+                    0,
+                    0.5,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              },
+              {
+                "locator": {
+                  "unit": 1,
+                  "rect": [
+                    0.5,
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                "clinical": true,
+                "patient_reference": {
+                  "entity_type": "UHID",
+                  "value": "FX100001"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

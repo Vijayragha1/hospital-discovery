@@ -1,0 +1,14 @@
+{
+  "split": "evaluation",
+  "synthetic": true,
+  "sources": [{
+    "id": "synthetic-heldout", "kind": "filesystem", "config": {"root": "heldout"}, "category": "digital",
+    "samples": [
+      {"id": "test-001", "location": "record.txt", "expected": ["personal_data:UHID", "personal_data:EMAIL_ADDRESS", "patient_linked_health:HEALTH_INFORMATION"], "expected_status": "full"},
+      {"id": "test-002", "location": "negative.txt", "expected": [], "expected_status": "full"},
+      {"id": "test-003", "location": "separate-records.txt", "expected": ["personal_data:MRN", "clinical_content:HEALTH_INFORMATION"], "expected_status": "full"},
+      {"id": "test-004", "location": "unsupported.dcm", "expected": [], "expected_status": "unsupported"},
+      {"id": "test-005", "location": "archive.zip", "expected": [], "expected_status": "excluded"}
+    ]
+  }]
+}

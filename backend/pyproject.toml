@@ -1,0 +1,9 @@
+[project]
+name = "hospital-discovery"
+version = "0.1.0"
+description = "Hospital-local PII and health information discovery pilot"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
